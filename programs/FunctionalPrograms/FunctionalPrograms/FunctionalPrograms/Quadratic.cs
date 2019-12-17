@@ -1,11 +1,22 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------
+// <copyright file="Quadratic.cs" company="Bridgelabz">
+//     Company copyright tag.
+// </copyright>
+//-----------------------------------------------------------------------
+namespace FunctionalPrograms
+{
+    using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace FunctionalPrograms
-{
-    class Quadratic
+    /// <summary>
+    /// roots of a quadratic equation
+    /// </summary>
+    public class Quadratic
     {
+        /// <summary>
+        /// user input of values to determine roots of an equation
+        /// </summary>
         public static void QuadraticEquations()
         {
             Console.WriteLine("Enter values of a : ");
@@ -15,7 +26,6 @@ namespace FunctionalPrograms
             Console.WriteLine("Enter values of c : ");
             double c = Convert.ToDouble(Console.ReadLine());
             Utility.QuadraticEquation(a, b, c);
-        }
-       
+        }      
     }
 }

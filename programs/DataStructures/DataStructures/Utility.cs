@@ -7,6 +7,7 @@ namespace DataStructures
 {
     using System;
 using System.Collections.Generic;
+    using System.Collections;
 using System.Text;
 
     /// <summary>
@@ -107,6 +108,64 @@ using System.Text;
             }
         }
 
+        public static void IsPrimeAnagram()
+        {
+            List<int> prime = new List<int>();
+            List<int>anagram=new List<int>();
+            for (int num = 2; num <= 1000; num++)
+            {
+                int temp = 0;
+                for (int i = 2; i <= num / 2; i++)
+                {
+                    if (num % 2 == 0)
+                    {
+                        temp++;
+                    }
+                }
+                if (temp == 0)
+                {
+                    prime.Add(num);
+                }
+            }
+            for (int i = 0; i < prime.Count; i++)
+            {
+                for (int l = i+1; l < prime.Count; l++)
+                {
+                    if (IsAnagram(prime[i], prime[l]))
+                    {
+                        Console.WriteLine(prime[i]+" "+prime[l]);
+                        anagram.Add(prime[i]);
+                    }
+                }
+            }
+
+        }
+        public static bool IsAnagram(int num1,int num2)
+        {
+            int[] arr1 = Count(num1);
+            int[] arr2 = Count(num2);
+          
+            for (int i = 0; i < 10; i++)
+            { 
+                if (arr1[i] != arr2[i])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public static int[] Count(int number)
+        {
+            int n = number;
+            int [] arr = new int[10];
+            while (n > 0)
+            {
+                arr[n % 10]++;
+                n = n / 10;
+            }
+            return arr;
+        }
         /// <summary>
         /// Determines whether the specified string is palindrome.
         /// </summary>
@@ -185,6 +244,91 @@ using System.Text;
             {
                 return "Not balanced";
             }
+        }
+    }
+    class StkNode
+    {
+       public int data;
+       public StkNode nextnode;
+        public StkNode(int d)
+        {
+            data = d;
+            nextnode = null;
+        }
+    }
+   public class AnagramStack
+    {
+        StkNode top;
+        public void Push(int newdata)
+        {
+            StkNode newnode = new StkNode(newdata);
+            if (top == null)
+            {
+                top = newnode;
+            }
+            else
+            {
+                newnode.data = newdata;
+                newnode.nextnode = top;
+                top = newnode;
+            }
+        }
+        public void Pop()
+        {
+            if (top == null)
+            {
+                Console.WriteLine("Stack underflow !");
+            }
+            else
+            {
+                top = top.nextnode;
+            }
+        }
+        private bool IsEmpty()
+        {
+            return top == null;
+        }
+        public int Peek()
+        {
+            if (!IsEmpty())
+            {
+                return top.data;
+            }
+            return -1;
+        }
+        public void Display()
+        {
+            StkNode temp = top;
+            while (temp != null)
+            {
+                Console.Write(temp.data+" ");
+                temp = temp.nextnode;
+            }
+        }
+        private int Count()
+        {
+            StkNode temp = top;
+            int cnt = 0;
+            while (temp != null)
+            {
+                cnt++;
+                temp = temp.nextnode;
+            }
+            return cnt;
+        }
+        public void Reverse()
+        {
+            StkNode previous = null;
+            StkNode current = top;
+            StkNode next = null;
+            while (current != null)
+            {
+                next = current.nextnode;
+                current.nextnode = previous;
+                previous = current;
+                current = next;
+            }
+            top = previous;
         }
     }
 }

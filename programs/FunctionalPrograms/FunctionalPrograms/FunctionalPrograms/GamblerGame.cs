@@ -1,11 +1,22 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------
+// <copyright file="GamblerGame.cs" company="Bridgelabz">
+//     Company copyright tag.
+// </copyright>
+//-----------------------------------------------------------------------
+namespace FunctionalPrograms
+{
+    using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace FunctionalPrograms
-{
-    class GamblerGame
+    /// <summary>
+    /// implement a gambler game
+    /// </summary>
+    public class GamblerGame
     {
+        /// <summary>
+        /// takes input from user to execute a gambler's game
+        /// </summary>
         public static void GamblerResult()
         {
             Console.WriteLine("Enter the stake :");

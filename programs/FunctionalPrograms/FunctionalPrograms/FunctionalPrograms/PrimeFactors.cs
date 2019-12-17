@@ -1,11 +1,22 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------
+// <copyright file="PrimeFactors.cs" company="Bridgelabz">
+//     Company copyright tag.
+// </copyright>
+//-----------------------------------------------------------------------
+namespace FunctionalPrograms
+{
+    using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace FunctionalPrograms
-{
-    class PrimeFactors
+    /// <summary>
+    /// Prime factors of a number
+    /// </summary>
+    public class PrimeFactors
     {
+        /// <summary>
+        /// user input of the number to determine its factors
+        /// </summary>
         public static void Factors()
         {
             Console.WriteLine("Enter the number : ");

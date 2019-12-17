@@ -1,16 +1,28 @@
-﻿namespace FunctionalPrograms
+﻿//-----------------------------------------------------------------------
+// <copyright file="Utility.cs" company="Bridgelabz">
+//     Company copyright tag.
+// </copyright>
+//-----------------------------------------------------------------------
+namespace FunctionalPrograms
 {
     using System;
 using System.Collections.Generic;
 using System.Text;
     using System.Threading;
 
-   public class Utility
+    /// <summary>
+    /// utility class containing logic
+    /// </summary>
+    public class Utility
     {
+        /// <summary>
+        /// Replaces the string.
+        /// </summary>
+        /// <param name="userName">Name of the user.</param>
+        
         public static void ReplaceString(string userName)
         {
-            try
-            {
+            
                 string str = "Hello username,How are you ?";
                 if (userName.Length > 3)
                 {
@@ -21,13 +33,13 @@ using System.Text;
                 {
                     Console.WriteLine("String length should be greater than 3");
                 }
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
+           
         }
 
+        /// <summary>
+        /// Flips the coin.
+        /// </summary>
+        /// <param name="flips">The flips.</param>
         public static void FlipCoin(int flips)
         {
             Random r = new Random();
@@ -51,6 +63,10 @@ using System.Text;
             Console.WriteLine("Tail percentage " + per_tail);
         }
 
+        /// <summary>
+        /// checks if the given year is leap year or not
+        /// </summary>
+        /// <param name="year">The year.</param>
         public static void LeapYear(int year)
         {
             if (year > 999 && year < 9999)
@@ -70,6 +86,10 @@ using System.Text;
             }
         }
 
+        /// <summary>
+        /// Powers the specified number.
+        /// </summary>
+        /// <param name="number">The number.</param>
         public static void Power(int number)
         {
             double result;
@@ -85,10 +105,14 @@ using System.Text;
             else
             {
                 Console.WriteLine("Enter valid range ");
-            }
-            
+            }          
         }
 
+        /// <summary>
+        /// calculates Nth term of the series
+        /// </summary>
+        /// <param name="terms">The terms.</param>
+        /// <returns>returns the last element of the series</returns>
         public static double Harmonicseries(int terms)
         {
             double result = 0;
@@ -102,6 +126,10 @@ using System.Text;
             return result;
         }
 
+        /// <summary>
+        /// Prime factors of the specified number.
+        /// </summary>
+        /// <param name="number">The number.</param>
         public static void Primefactors(int number)
         {
             for (int i = 1; i * i <= number; i++)
@@ -113,6 +141,12 @@ using System.Text;
             }
         }
 
+        /// <summary>
+        /// Gambler game
+        /// </summary>
+        /// <param name="stake">The stake.</param>
+        /// <param name="goal">The goal.</param>
+        /// <param name="trials">The trials.</param>
         public static void Gambler(int stake, int goal, int trials)
         {
             int wins = 0;
@@ -150,6 +184,11 @@ using System.Text;
             Console.WriteLine("Percentage lose  :" + percentage_lose + " %");
         }
 
+        /// <summary>
+        /// two dimensional array
+        /// </summary>
+        /// <param name="rows">The rows.</param>
+        /// <param name="columns">The columns.</param>
         public static void TwoDimArray(int rows, int columns)
         {
             int[,] arr = new int[rows, columns];
@@ -173,6 +212,9 @@ using System.Text;
             }
         }
 
+        /// <summary>
+        /// Addition of elements of array to the zero.
+        /// </summary>
         public static void AdditiontoZero()
         {
             int[] arr = { 8, -3, 0, 5, -8, 2, 6, -5 };
@@ -191,12 +233,24 @@ using System.Text;
             }
         }
 
+        /// <summary>
+        /// Distance calculation.
+        /// </summary>
+        /// <param name="x">The x.</param>
+        /// <param name="y">The y.</param>
+        /// <returns>returns the distance between two points</returns>
         public static double DistanceCal(int x, int y)
         {
             double distance = Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2));
             return distance;
         }
 
+        /// <summary>
+        /// calculates the wind chill
+        /// </summary>
+        /// <param name="temperature">The temperature.</param>
+        /// <param name="speed">The speed.</param>
+        /// <returns>the value of wind chill</returns>
         public static double WindChillCal(double temperature, double speed)
         {
             double w = 0;
@@ -206,32 +260,40 @@ using System.Text;
             }
             else
             {
-                w = 35.74 + (0.6215 * temperature) + ((0.4275 * temperature - 35.75) * Math.Pow(speed, 0.16));
+                w = 35.74 + (0.6215 * temperature) + (((0.4275 * temperature) - 35.75) * Math.Pow(speed, 0.16));
             }
 
             return w;
         }
 
+        /// <summary>
+        /// generates distinct coupon numbers
+        /// </summary>
+        /// <param name="number">The number.</param>
         public static void CouponNo(int number)
         {
-            bool[] arr = new bool[number];
+            bool[] arr = new bool[10];
             int distinct = 0;
             int count = 0;
             while (distinct != number)
             {
                 count++;
-                int value = Utility.RandomNumbers(number);
-                Console.Write(value + " ");
+                int value = Utility.RandomNumbers();
+              //  Console.Write(value + " ");
                 if (!arr[value])
                 {
                     arr[value] = true;
                     distinct++;
+                    Console.Write(value + " ");
                 }
             }
 
-            Console.WriteLine("Total number of random numbers required : " + count);
+            Console.WriteLine("\n Total number of random numbers required : " + count);
         }
 
+        /// <summary>
+        /// calculates the time elapse.
+        /// </summary>
         public static void StopWatch()
         {
             DateTime start = Utility.StartTime();
@@ -240,32 +302,51 @@ using System.Text;
             Console.WriteLine("Time elapse " + (stop - start));
         }
 
+        /// <summary>
+        /// calculates roots of a quadratic equation
+        /// </summary>
+        /// <param name="a">value of a</param>
+        /// <param name="b">value of b.</param>
+        /// <param name="c">value of c.</param>
         public static void QuadraticEquation(double a, double b, double c)
         {
-            double delta = b * b - 4 * a * c;
+            double delta = (b * b) - (4 * a * c);
             double root1 = 0, root2 = 0;
             if (delta > 0)
             {
                  root1 = (-b + Math.Sqrt(delta)) / (2 * a);
                  root2 = (-b - Math.Sqrt(delta)) / (2 * a);
             }
-            Console.WriteLine("Square roots of x are {0} and {1}", root1, root2);
 
+            Console.WriteLine("Square roots of x are {0} and {1}", root1, root2);
         }
 
-        private static int RandomNumbers(int number)
+        /// <summary>
+        /// generates random numbers
+        /// </summary>
+        /// <param name="number">The number.</param>
+        /// <returns>returns the random number generated</returns>
+        private static int RandomNumbers()
         {
             Random r = new Random();
-            int result = (int)r.NextDouble() * number;
+            int result = r.Next(10);
             return result;
         }
 
+        /// <summary>
+        /// Starts the time.
+        /// </summary>
+        /// <returns>returns the current system time</returns>
         private static DateTime StartTime()
         {
             DateTime dt = DateTime.Now;
             return dt;
         }
 
+        /// <summary>
+        /// Stops the time.
+        /// </summary>
+        /// <returns>returns the current system time</returns>
         private static DateTime StopTime()
         {
             DateTime dtime = DateTime.Now;
@@ -314,7 +395,7 @@ using System.Text;
             } while (flag != 1 && flag != -1);
             if (flag == 1)
             {
-                Console.WriteLine("The winner is " + (player % 2) + 1);
+                Console.WriteLine("The winner is " + ((player % 2) + 1));
             }
             else
             {
@@ -392,20 +473,20 @@ using System.Text;
             {
                 for (int i = start; i <= end; i++)
                 {
-                    str = swap(str, start, i);
+                    str = Swap(str, start, i);
                     StringPermutation(str, start + 1, end);
-                    str = swap(str, start, i);
+                    str = Swap(str, start, i);
                 }
             }
         }
-        private static string swap(string str, int firstele, int secondele)
+        private static string Swap(string str, int firstele, int secondele)
         {
             char temp;
             char[] arr = str.ToCharArray();
             temp = arr[firstele];
             arr[firstele] = arr[secondele];
             arr[secondele] = temp;
-            String s = new string(arr);
+            string s = new string(arr);
             return s;
         }
     }

@@ -1,9 +1,23 @@
-﻿namespace FunctionalPrograms
+﻿//-----------------------------------------------------------------------
+// <copyright file="Program.cs" company="Bridgelabz">
+//     Company copyright tag.
+// </copyright>
+//-----------------------------------------------------------------------
+namespace FunctionalPrograms
 {
     using System;
-    class Program
+
+    /// <summary>
+    /// Entry point of the application
+    /// </summary>
+   public class Program
     {
-       public static void Main(string[] args)
+        /// <summary>
+        /// Defines the entry point of the application.
+        /// </summary>
+        /// <param name="args">The arguments.</param>
+        /// <exception cref="Exception">returns any type of exception occurred</exception>
+        public static void Main(string[] args)
         {
             try
             {
@@ -75,6 +89,7 @@
             {
                 throw new Exception(e.Message);
             }
+
             Console.ReadLine();
         }
     }
