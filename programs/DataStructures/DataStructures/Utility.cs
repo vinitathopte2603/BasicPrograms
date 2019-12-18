@@ -246,7 +246,59 @@ using System.Text;
             }
         }
     }
-    class StkNode
+
+    public class QNode
+    {
+        public int data;
+        public QNode nextnode;
+        public QNode(int d)
+        {
+            data = d;
+            nextnode = null;
+        }
+    }
+
+    public class Queue
+    {
+        QNode front;
+        QNode rear;
+        public void Insert(int newdata)
+        {
+            QNode newnode = new QNode(newdata);
+            if (front == null)
+            {
+                front = newnode;
+                rear = newnode;
+            }
+            else
+            {
+                rear.nextnode = newnode;
+                rear = newnode;
+            }
+        }
+        public void Remove()
+        {
+            if (front == null && rear == null)
+            {
+                Console.WriteLine("List is empty");
+            }
+            else
+            {
+                front = front.nextnode;
+            }
+
+        }
+        public void Display()
+        {
+            QNode temp = front;
+            while (temp != null)
+            {
+                Console.Write(temp.data + " ");
+                temp = temp.nextnode;
+            }
+        }
+    }
+        class StkNode
     {
        public int data;
        public StkNode nextnode;
@@ -329,6 +381,209 @@ using System.Text;
                 current = next;
             }
             top = previous;
+        }
+    }
+    class LstNode
+    {
+       public int data;
+       public LstNode nextnode;
+        public LstNode(int d)
+        {
+            data = d;
+            nextnode = null;
+        }
+    }
+    class OrderedList
+    {
+        LstNode head;
+        public void InsertFirst(int newdata)
+        {
+            LstNode newnode = new LstNode(newdata);
+            if (head == null)
+            {
+                head = newnode;
+            }
+            else
+            {
+                newnode.nextnode = head;
+                head = newnode;
+            }
+        }
+        public void Insertlast(int newdata)
+        {
+            LstNode newnode = new LstNode(newdata);
+            if (head == null)
+            {
+                InsertFirst(newdata);
+            }
+            else
+            {
+                LstNode temp = head;
+                while (temp != null)
+                {
+                    temp = temp.nextnode;
+                }
+                temp.nextnode = newnode;
+            }
+        }
+        public void InsertAtPosition(int newdata, int pos)
+        {
+            LstNode newnode = new LstNode(newdata);
+            int count = Count();
+            if (pos > count && pos < 0)
+            {
+                Console.WriteLine("Insert valid position");
+            }
+            else if (count == 1)
+            {
+                InsertFirst(newdata);
+            }
+            else if (pos == count)
+            {
+                Insertlast(newdata);
+            }
+            else
+            {
+                LstNode temp = head;
+                for (int i = 1; i <= (pos - 2); i++)
+                {
+                    temp = temp.nextnode;
+                }
+                newnode.nextnode = temp.nextnode;
+                temp.nextnode = newnode;
+            }
+        }
+        public void DeleteFirst()
+        {
+            if (head == null)
+            {
+                Console.WriteLine("List empty");
+            }
+            else
+            {
+                head = head.nextnode;
+            }
+        }
+        public void DeleteLast()
+        {
+            if (head == null)
+            {
+                Console.WriteLine("List empty");
+            }
+            else
+            {
+                LstNode temp = head;
+                while (temp.nextnode.nextnode != null)
+                {
+                    temp = temp.nextnode;
+                }
+                temp.nextnode = null;
+            }
+        }
+        public void DeleteAtPos(int pos)
+        {
+            int count = Count();
+            if (pos > count && pos < 0)
+            {
+                Console.WriteLine("Enter valid position");
+            }
+            else if (pos == 1)
+            {
+                DeleteFirst();
+            }
+            else if (pos == count)
+            {
+                DeleteLast();
+            }
+            else
+            {
+                LstNode temp1 = head;
+                LstNode temp2 = null;
+                for (int i = 1; i <= (pos - 2); i++)
+                {
+                    temp1 = temp1.nextnode;
+                }
+                temp2 = temp1.nextnode;
+                temp1.nextnode = temp2.nextnode;
+            }
+        }
+
+        public int Count()
+        {
+            int count = 0;
+            LstNode temp = head;
+            while (temp != null)
+            {
+                count++;
+                temp = temp.nextnode;
+            }
+            return count;
+        }
+        public void Display()
+        {
+            LstNode temp = head;
+            while (temp != null)
+            {
+                Console.Write(temp.data + " ");
+                temp = temp.nextnode;
+            }
+        }
+        public void Sort()
+        {
+            LstNode current = head;
+            while (current != null)
+            {
+                LstNode next = current.nextnode;
+                while (next != null)
+                {
+                    if (current.data > next.data)
+                    {
+                        int temp = next.data;
+                        next.data = current.data;
+                        current.data = temp;
+                    }
+                    next = next.nextnode;
+                }
+                current = current.nextnode;
+            }
+        }
+        public void Search(int searchelement)
+        {
+            LstNode current = head;
+            LstNode current1 = head;
+            int count = 0;
+            int cnt = 0;
+            while (current != null)
+            {
+                count++;
+                if (searchelement.CompareTo(current.data)== 0)
+                {
+                    Console.WriteLine("Count " + count);
+                    if (count == 1)
+                    {
+                        DeleteFirst();
+                    }
+                    else if (count == Count())
+                    {
+                        DeleteLast();
+                    }
+                    else
+                    {
+                        DeleteAtPos(count);
+                    }
+                }
+
+                if (searchelement != current1.data)
+                {
+                    cnt++;
+                }
+                current = current.nextnode;
+            }
+            
+            if (cnt == Count())
+            {
+                InsertFirst(searchelement);
+            }
         }
     }
 }

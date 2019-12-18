@@ -23,7 +23,7 @@ namespace DataStructures
                 bool flag = true;
                 while (flag)
                 {
-                    Console.WriteLine("\n 1 : 2D Array \n 2 : Palindrome checker \n 3 : Unordered linked list \n 4 : Balanced parenthesis \n 5 : Ordered linked list \n 6 : Queue \n 7 : Dequeue \n 8 : Prime anagram \n 9 : Stack using linked list \n 10 : Exit");
+                    Console.WriteLine("\n 1 : 2D Array \n 2 : Palindrome checker \n 3 : Unordered linked list \n 4 : Balanced parenthesis \n 5 : Ordered linked list \n 6 : Queue \n 7 : Dequeue \n 8 : Prime anagram \n 9 : Stack using linked list \n 10 : Queue using linked list \n 11 : Exit");
                     Console.WriteLine("Enter your choice : ");
                     int choice = Convert.ToInt32(Console.ReadLine());
                     switch (choice)
@@ -41,10 +41,10 @@ namespace DataStructures
                             BalancedParenthesis.BalanceParenthesis();
                             break;
                         case 5:
-                            OrderedList.OrderedLinkedList();
+                            OrderedLnkdList.OrderedLinkedList();
                             break;
                         case 6:
-                            Queue.CashCounter();
+                            CashCountr.CashCounter();
                             break;
                         case 7:
                             Dequeue.CheckPalindrome();
@@ -56,6 +56,9 @@ namespace DataStructures
                             StackUsingLinkedList.PrimeAnagram();
                             break;
                         case 10:
+                            QueueUsingLinkedList.PrimeAnagrm();
+                            break;
+                        case 11:
                             flag = false;
                             break;
                     }

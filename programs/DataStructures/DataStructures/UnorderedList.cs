@@ -1,4 +1,9 @@
-﻿namespace DataStructures
+﻿//-----------------------------------------------------------------------
+// <copyright file="Node.cs" company="Bridgelabz">
+//     Company copyright tag.
+// </copyright>
+//-----------------------------------------------------------------------
+namespace DataStructures
 {
     using System;
     using System.Collections.Generic;
@@ -124,7 +129,6 @@
                 }
                 temp2 = temp1.nextnode;
                 temp1.nextnode = temp2.nextnode;
-                temp2 = null;
             }
             return list;
         }
