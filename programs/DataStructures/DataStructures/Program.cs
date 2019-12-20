@@ -23,7 +23,7 @@ namespace DataStructures
                 bool flag = true;
                 while (flag)
                 {
-                    Console.WriteLine("\n 1 : 2D Array \n 2 : Palindrome checker \n 3 : Unordered linked list \n 4 : Balanced parenthesis \n 5 : Ordered linked list \n 6 : Queue \n 7 : Dequeue \n 8 : Prime anagram \n 9 : Stack using linked list \n 10 : Queue using linked list \n 11 : Exit");
+                    Console.WriteLine("\n 1 : 2D Array \n 2 : Palindrome checker \n 3 : Unordered linked list \n 4 : Balanced parenthesis \n 5 : Ordered linked list \n 6 : Queue \n 7 : Dequeue \n 8 : Prime anagram \n 9 : Stack using linked list \n 10 : Queue using linked list \n 11 : Hashing function \n 12 : Exit");
                     Console.WriteLine("Enter your choice : ");
                     int choice = Convert.ToInt32(Console.ReadLine());
                     switch (choice)
@@ -59,6 +59,9 @@ namespace DataStructures
                             QueueUsingLinkedList.PrimeAnagrm();
                             break;
                         case 11:
+                            HashFunctionCall.CallingHash();
+                            break;
+                        case 12:
                             flag = false;
                             break;
                     }

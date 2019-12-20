@@ -117,7 +117,7 @@ using System.Text;
                 int temp = 0;
                 for (int i = 2; i <= num / 2; i++)
                 {
-                    if (num % 2 == 0)
+                    if (num % i == 0)
                     {
                         temp++;
                     }
@@ -129,7 +129,7 @@ using System.Text;
             }
             for (int i = 0; i < prime.Count; i++)
             {
-                for (int l = i+1; l < prime.Count; l++)
+                for (int l = i + 1; l < prime.Count; l++)
                 {
                     if (IsAnagram(prime[i], prime[l]))
                     {
@@ -207,7 +207,7 @@ using System.Text;
         /// <returns>returns a string mentioning whether the expression is balanced or not</returns>
         public static string IsBalanced(string expression)
         {
-            Stack<char> stk = new Stack<char>();
+            AnagramStack stk = new AnagramStack();
             char[] arr = expression.ToCharArray();
             for (int i = 0; i < expression.Length; i++)
             {
@@ -219,12 +219,12 @@ using System.Text;
 
                 if (current == ']' || current == ')' || current == '}')
                 {
-                    if (stk.Count == 0)
+                    if (stk.Count() == 0)
                     {
                         return "Not balanced";
                     }
 
-                    char last = stk.Peek();
+                    char last = (char)stk.Peek();
                     if (current == ']' || current == ')' || current == '}')
                     {
                         stk.Pop();
@@ -236,7 +236,7 @@ using System.Text;
                 }
             }
 
-            if (stk.Count == 0)
+            if (stk.Count() == 0)
             {
                 return "Balanced";
             }
@@ -336,7 +336,7 @@ using System.Text;
                 top = top.nextnode;
             }
         }
-        private bool IsEmpty()
+        public bool IsEmpty()
         {
             return top == null;
         }
@@ -357,7 +357,7 @@ using System.Text;
                 temp = temp.nextnode;
             }
         }
-        private int Count()
+        public int Count()
         {
             StkNode temp = top;
             int cnt = 0;
@@ -584,6 +584,128 @@ using System.Text;
             {
                 InsertFirst(searchelement);
             }
+        }
+    }
+    public class MonthlyCalender
+    {
+        static int[,] arr = new int[5,7];
+       static int[] months = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+        public static int DayOfWeek( int month, int year)
+        {      
+            int d = 1, y = year, m = month;
+            int y0 = y - (14 - m) / 12;
+            int x = y0 + y0 / 4 - y0 / 100 + y0 / 400;
+            int m0 = m + 12 * ((14 - m) / 12) - 2;
+            int d0 = (d + x + 31 + m0 / 12) % 7;
+            return d0;
+        }
+        public void Calender(int month, int year)
+        {
+            
+        }
+
+        private static Boolean IsLeapYear(int year)
+        {
+            if (year > 999 && year < 9999)
+            {
+                if ((year % 4 == 0) && (year % 100 != 0))
+                {
+                    return true;
+                }
+                if (year % 400 == 0)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
+    public class HashingFunction
+    {
+        internal int[,] hashvalue = new int[10, 10];
+        internal int remainder = new int();
+        internal int value;
+        public int[,] HashFunction(List<int> list)
+        {
+            int first = 0, second = 0, third = 0, fourth = 0, fifth = 0, sixth = 0, seventh = 0, eighth = 0, ninth = 0, tenth = 0;
+            foreach (int number in list)
+            {
+                if (Remainder(number) == 0)
+                {
+                    hashvalue[0, first] = number;
+                    first++;
+                }
+                else if (Remainder(number) == 1)
+                {
+                    hashvalue[1, second] = number;
+                    second++;
+                }
+                else if (Remainder(number) == 2)
+                {
+                    hashvalue[2, third] = number;
+                    third++;
+                }
+                else if (Remainder(number) == 3)
+                {
+                    hashvalue[3, fourth] = number;
+                    fourth++;
+                }
+                else if (Remainder(number) == 4)
+                {
+                    hashvalue[4, fifth] = number;
+                    fifth++;
+                }
+                else if (Remainder(number) == 5)
+                {
+                    hashvalue[5, sixth] = number;
+                    sixth++;
+                }
+                else if (Remainder(number) == 6)
+                {
+                    hashvalue[6, seventh] = number;
+                    seventh++;
+                }
+                else if (Remainder(number) == 7)
+                {
+                    hashvalue[7, eighth] = number;
+                    eighth++;
+                }
+                else if (Remainder(number) == 8)
+                {
+                    hashvalue[8, ninth] = number;
+                    ninth++;
+                }
+                else if (Remainder(number) == 9)
+                {
+                    hashvalue[9, tenth] = number;
+                    tenth++;
+                }
+            }
+            return hashvalue;
+
+        }
+        public int Remainder(int number)
+        {
+            while (number > 9)
+            {
+                this.remainder = number % 10;
+                number = number / 10;
+            }
+            return remainder;
+        }
+        public int Search(int number)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    if (hashvalue[i, j] == number)
+                    {
+                        value = i;
+                    }
+                }
+            }
+            return value;
         }
     }
 }

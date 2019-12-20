@@ -1,0 +1,53 @@
+{
+  "Rice": [
+    {
+      "name": "basmati",
+      "weight": 992.0,
+      "pricePerkg": 35.0
+    },
+    {
+      "name": "sushi rice",
+      "weight": 100.0,
+      "pricePerkg": 30.0
+    },
+    {
+      "name": "jasmine rice",
+      "weight": 100.0,
+      "pricePerkg": 26.0
+    }
+  ],
+  "wheat": [
+    {
+      "name": "emmer",
+      "weight": 53.0,
+      "pricePerkg": 22.0
+    },
+    {
+      "name": "durum",
+      "weight": 95.0,
+      "pricePerkg": 32.0
+    },
+    {
+      "name": "rye",
+      "weight": 85.0,
+      "pricePerkg": 28.0
+    }
+  ],
+  "pulses": [
+    {
+      "name": "chickpea",
+      "weight": 500.0,
+      "pricePerkg": 63.0
+    },
+    {
+      "name": "cow pea",
+      "weight": 745.0,
+      "pricePerkg": 45.0
+    },
+    {
+      "name": "dew gram beans",
+      "weight": 200.0,
+      "pricePerkg": 55.0
+    }
+  ]
+}

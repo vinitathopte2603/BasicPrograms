@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObjectOrientedPrograms", "ObjectOrientedPrograms\ObjectOrientedPrograms.csproj", "{F8DC5755-FBE8-416C-A4F9-B7D43A71368E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F8DC5755-FBE8-416C-A4F9-B7D43A71368E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8DC5755-FBE8-416C-A4F9-B7D43A71368E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8DC5755-FBE8-416C-A4F9-B7D43A71368E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8DC5755-FBE8-416C-A4F9-B7D43A71368E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {461137DF-6269-4335-B7FD-2FF28410EE53}
+	EndGlobalSection
+EndGlobal
