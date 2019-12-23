@@ -1,13 +1,9 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="DqNode.cs" company="Bridgelabz">
-//     Company copyright tag.
-// </copyright>
-//-----------------------------------------------------------------------
-//-----------------------------------------------------------------------
 // <copyright file="Dequeue.cs" company="Bridgelabz">
 //     Company copyright tag.
 // </copyright>
 //-----------------------------------------------------------------------
+
 namespace DataStructures
 {
     using System;
@@ -25,10 +21,14 @@ using System.Text;
         public char data;
 
         /// <summary>
-        /// The nextnode
+        /// The next node
         /// </summary>
         public DqNode nextnode;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DqNode"/> class.
+        /// </summary>
+        /// <param name="d">The data.</param>
         public DqNode(char d)
         {
             this.data = d;
@@ -44,12 +44,12 @@ using System.Text;
         /// <summary>
         /// The first node
         /// </summary>
-        DqNode front;
+       public DqNode front;
 
         /// <summary>
         /// The last node
         /// </summary>
-        DqNode rear;
+       public DqNode rear;
        
         /// <summary>
         /// Counts the nodes in the queue.

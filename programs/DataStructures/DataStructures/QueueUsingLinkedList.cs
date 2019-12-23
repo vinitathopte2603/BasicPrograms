@@ -1,11 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿//-----------------------------------------------------------------------
+// <copyright file="QueueUsingLinkedList.cs" company="Bridgelabz">
+//     Company copyright tag.
+// </copyright>
+//-----------------------------------------------------------------------
 namespace DataStructures
 {
-    class QueueUsingLinkedList
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
+    /// <summary>
+    /// class to determine anagram numbers those are prime
+    /// </summary>
+    public class QueueUsingLinkedList
     {
+        /// <summary>
+        /// checks if two given prime numbers from list are anagram or not
+        /// </summary>
         public static void PrimeAnagrm()
         {
             Queue queue = new Queue();
@@ -21,12 +32,14 @@ namespace DataStructures
                         temp++;
                     }
                 }
+
                 if (temp == 0)
                 {
                     anagram[j] = num;
                     j++;
                 }
             }
+
             for (int i = 0; i < anagram.Length; i++)
             {
                 for (int k = i + 1; k < anagram.Length; k++)
@@ -37,8 +50,8 @@ namespace DataStructures
                         queue.Insert(anagram[k]);
                     }
                 }
-
             }
+
             queue.Display();
         }  
     }

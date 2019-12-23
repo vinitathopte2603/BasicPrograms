@@ -15,17 +15,71 @@ namespace DataStructures
     /// </summary>
     public class Node
     {
+        /// <summary>
+        /// The data
+        /// </summary>
         public string data;
+
+        /// <summary>
+        /// The next node
+        /// </summary>
         public Node nextnode;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Node"/> class.
+        /// </summary>
+        /// <param name="d">The data to insert in list.</param>
         public Node(string d)
         {
-            data = d;
+            this.data = d;
             nextnode = null;
         }
     }
-    class UnorderedList
+
+    /// <summary>
+    /// perform unordered list
+    /// </summary>
+   public class UnorderedList
     {
+        /// <summary>
+        /// The head of unordered linked list
+        /// </summary>
         Node head;
+
+        /// <summary>
+        /// reads elements from a file to store in a linked list
+        /// </summary>
+        public static void UnorderedLinkedList()
+        {
+            try
+            {
+                StreamReader sr = new StreamReader(@"D:\bridgelabz\programs\DataStructures\DataStructures\UnorderedListFile.txt");
+                string fileContent = sr.ReadToEnd();
+                string[] arr = fileContent.Split(" ");
+                UnorderedList unol = new UnorderedList();
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    unol = InsertFirst(unol, arr[i]);
+                }
+
+                Display(unol);
+                Console.WriteLine("\n Enter element to be searched : ");
+                string element = Console.ReadLine();
+                unol = Search(unol, element);
+                Display(unol);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
+        /// <summary>
+        /// Inserts the first.
+        /// </summary>
+        /// <param name="list">The list.</param>
+        /// <param name="newdata">The new data.</param>
+        /// <returns>the list</returns>
         private static UnorderedList InsertFirst(UnorderedList list, string newdata)
         {
             Node newnode = new Node(newdata);
@@ -38,8 +92,16 @@ namespace DataStructures
                 newnode.nextnode = list.head;
                 list.head = newnode;
             }
+
             return list;
         }
+
+        /// <summary>
+        /// Inserts the data in the last position of list.
+        /// </summary>
+        /// <param name="list">The list.</param>
+        /// <param name="newdata">The new data.</param>
+        /// <returns>the list</returns>
         private static UnorderedList InsertLast(UnorderedList list, string newdata)
         {
             Node newnode = new Node(newdata);
@@ -48,9 +110,18 @@ namespace DataStructures
             {
                 temp = temp.nextnode;
             }
+
             temp.nextnode = newnode;
             return list;
         }
+
+        /// <summary>
+        /// Inserts at position.
+        /// </summary>
+        /// <param name="list">The list.</param>
+        /// <param name="newdata">The new data.</param>
+        /// <param name="pos">The position.</param>
+        /// <returns>the list</returns>
         private static UnorderedList InsertAtPos(UnorderedList list, string newdata, int pos)
         {
             Node temp = list.head;
@@ -74,12 +145,19 @@ namespace DataStructures
                 {
                     temp = temp.nextnode;
                 }
+
                 newnode.nextnode = temp.nextnode;
                 temp.nextnode = newnode;
             }
+
             return list;
         }
 
+        /// <summary>
+        /// Deletes the first element from list.
+        /// </summary>
+        /// <param name="list">The list.</param>
+        /// <returns>the list</returns>
         private static UnorderedList DeleteFirst(UnorderedList list)
         {
             if (list.head.nextnode == null)
@@ -90,9 +168,15 @@ namespace DataStructures
             {
                 list.head = list.head.nextnode;
             }
+
             return list;
         }
 
+        /// <summary>
+        /// Deletes the last element from linked list.
+        /// </summary>
+        /// <param name="list">The list.</param>
+        /// <returns>the list</returns>
         private static UnorderedList DeleteLast(UnorderedList list)
         {
             Node temp = list.head;
@@ -100,10 +184,17 @@ namespace DataStructures
             {
                 temp = temp.nextnode;
             }
+
             temp.nextnode = null;
             return list;
         }
 
+        /// <summary>
+        /// Deletes at position.
+        /// </summary>
+        /// <param name="list">The list.</param>
+        /// <param name="pos">The position.</param>
+        /// <returns>list is returned</returns>
         private static UnorderedList DeleteAtPos(UnorderedList list, int pos)
         {
             int cnt = Count(list);
@@ -127,11 +218,18 @@ namespace DataStructures
                 {
                     temp1 = temp1.nextnode;
                 }
+
                 temp2 = temp1.nextnode;
                 temp1.nextnode = temp2.nextnode;
             }
             return list;
         }
+
+        /// <summary>
+        /// Counts the nodes in list.
+        /// </summary>
+        /// <param name="list">The list.</param>
+        /// <returns>number of nodes in the list</returns>
         private static int Count(UnorderedList list)
         {
             Node temp = list.head;
@@ -141,8 +239,14 @@ namespace DataStructures
                 cnt++;
                 temp = temp.nextnode;
             }
+
             return cnt;
         }
+
+        /// <summary>
+        /// Displays the specified list.
+        /// </summary>
+        /// <param name="list">The list.</param>
         private static void Display(UnorderedList list)
         {
             Node temp = list.head;
@@ -152,6 +256,13 @@ namespace DataStructures
                 temp = temp.nextnode;
             }
         }
+
+        /// <summary>
+        /// Searches the specified list.
+        /// </summary>
+        /// <param name="list">The list.</param>
+        /// <param name="element">The element.</param>
+        /// <returns>the list after searching specified element in the list</returns>
         private static UnorderedList Search(UnorderedList list, string element)
         {
            // Console.WriteLine(list + " " + element);
@@ -175,6 +286,7 @@ namespace DataStructures
                     {
                         list = UnorderedList.DeleteAtPos(list, count);
                     }
+
                     return list;
                 }
               
@@ -183,33 +295,11 @@ namespace DataStructures
                     list = UnorderedList.InsertLast(list, element);
                     return list;
                 }
+
                 current = current.nextnode;
             }
+
             return list;
-        }
-        public static void UnorderedLinkedList()
-        {
-            try
-            {
-                StreamReader sr = new StreamReader(@"D:\bridgelabz\programs\DataStructures\DataStructures\UnorderedListFile.txt");
-                string fileContent = sr.ReadToEnd();
-                string[] arr = fileContent.Split(" ");
-                UnorderedList unol = new UnorderedList();
-                for (int i = 0; i < arr.Length; i++)
-                {
-                    unol = InsertFirst(unol, arr[i]);
-                }
-                Display(unol);
-                Console.WriteLine("\n Enter element to be searched : ");
-                string element = Console.ReadLine();
-                unol = Search(unol, element);
-                Display(unol);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-           
         }
     }
 }

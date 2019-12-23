@@ -1,5 +1,5 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="PrimeAnagram.cs" company="Bridgelabz">
+// <copyright file="Calendar.cs" company="Bridgelabz">
 //     Company copyright tag.
 // </copyright>
 //-----------------------------------------------------------------------
@@ -10,16 +10,16 @@ using System.Collections.Generic;
 using System.Text;
 
     /// <summary>
-    /// determines the anagram numbers from a list of prime numbers
+    /// class to display monthly calendar.
     /// </summary>
-   public class PrimeAnagram
+    public class Calendar
     {
         /// <summary>
-        /// calls the function that determines the prime anagram numbers
+        /// takes month and year as user input to display monthly calendar.
         /// </summary>
-        public static void PrimeAnag()
+        public static void MonthlyCalendar()
         {
-            Utility.IsPrimeAnagram();
+            
         }
     }
 }

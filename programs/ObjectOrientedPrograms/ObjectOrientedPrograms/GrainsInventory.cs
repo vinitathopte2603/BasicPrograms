@@ -1,25 +1,22 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="TwoDimensionalArray.cs" company="Bridgelabz">
+// <copyright file="GrainsInventory.cs" company="Bridgelabz">
 //     Company copyright tag.
 // </copyright>
 //-----------------------------------------------------------------------
-namespace DataStructures
+namespace ObjectOrientedPrograms
 {
     using System;
 using System.Collections.Generic;
 using System.Text;
 
     /// <summary>
-    /// Two dimensional array
+    /// Call to give call to inventory management method of grains
     /// </summary>
-   public class TwoDimensionalArray
+    class GrainsInventory
     {
-        /// <summary>
-        /// calling method that executes 2 D array
-        /// </summary>
-        public static void TwoDArray()
+        public static void GrainInventoryCall()
         {
-            Utility.TwoDimArray();
+            Utility.GrainsInventoryMgnt();
         }
     }
 }

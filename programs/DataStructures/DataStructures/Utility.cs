@@ -6,9 +6,9 @@
 namespace DataStructures
 {
     using System;
-using System.Collections.Generic;
     using System.Collections;
-using System.Text;
+    using System.Collections.Generic;
+    using System.Text;
 
     /// <summary>
     /// Utility class containing logic 
@@ -108,10 +108,13 @@ using System.Text;
             }
         }
 
+        /// <summary>
+        /// Determines whether prime number are anagram.
+        /// </summary>
         public static void IsPrimeAnagram()
         {
             List<int> prime = new List<int>();
-            List<int>anagram=new List<int>();
+            List<int> anagram = new List<int>();
             for (int num = 2; num <= 1000; num++)
             {
                 int temp = 0;
@@ -133,13 +136,21 @@ using System.Text;
                 {
                     if (IsAnagram(prime[i], prime[l]))
                     {
-                        Console.WriteLine(prime[i]+" "+prime[l]);
+                        Console.WriteLine(prime[i] + " " + prime[l]);
                         anagram.Add(prime[i]);
                     }
                 }
             }
-
         }
+
+        /// <summary>
+        /// Determines whether the specified numbers are anagram.
+        /// </summary>
+        /// <param name="num1">first number</param>
+        /// <param name="num2">second number.</param>
+        /// <returns>
+        ///   <c>true</c> if the specified numbers are anagram; otherwise, <c>false</c>.
+        /// </returns>
         public static bool IsAnagram(int num1,int num2)
         {
             int[] arr1 = Count(num1);
@@ -155,10 +166,15 @@ using System.Text;
             return true;
         }
 
+        /// <summary>
+        /// Counts the occurrence of a digits in specified number.
+        /// </summary>
+        /// <param name="number">The number.</param>
+        /// <returns>array containing the count of digits</returns>
         public static int[] Count(int number)
         {
             int n = number;
-            int [] arr = new int[10];
+            int[] arr = new int[10];
             while (n > 0)
             {
                 arr[n % 10]++;
@@ -224,7 +240,7 @@ using System.Text;
                         return "Not balanced";
                     }
 
-                    char last = (char)stk.Peek();
+                   // char last = (char)stk.Peek();
                     if (current == ']' || current == ')' || current == '}')
                     {
                         stk.Pop();
@@ -247,6 +263,9 @@ using System.Text;
         }
     }
 
+    /// <summary>
+    /// class to create node
+    /// </summary>
     public class QNode
     {
         public int data;
@@ -258,6 +277,9 @@ using System.Text;
         }
     }
 
+    /// <summary>
+    /// class to perform operations on linked list
+    /// </summary>
     public class Queue
     {
         QNode front;
@@ -276,6 +298,10 @@ using System.Text;
                 rear = newnode;
             }
         }
+
+        /// <summary>
+        /// Removes a node from front of the list
+        /// </summary>
         public void Remove()
         {
             if (front == null && rear == null)
@@ -395,7 +421,15 @@ using System.Text;
     }
     class OrderedList
     {
+        /// <summary>
+        /// The head of list
+        /// </summary>
         LstNode head;
+
+        /// <summary>
+        /// Inserts the data at first position.
+        /// </summary>
+        /// <param name="newdata">The newdata.</param>
         public void InsertFirst(int newdata)
         {
             LstNode newnode = new LstNode(newdata);
@@ -453,6 +487,10 @@ using System.Text;
                 temp.nextnode = newnode;
             }
         }
+
+        /// <summary>
+        /// Deletes the first element in list.
+        /// </summary>
         public void DeleteFirst()
         {
             if (head == null)
@@ -577,33 +615,65 @@ using System.Text;
                 {
                     cnt++;
                 }
+
                 current = current.nextnode;
             }
             
-            if (cnt == Count())
+            if (cnt == this.Count())
             {
-                InsertFirst(searchelement);
+                this.InsertFirst(searchelement);
             }
         }
     }
+
+    /// <summary>
+    /// class to determine and display calendar of the specified month
+    /// </summary>
     public class MonthlyCalender
     {
-        static int[,] arr = new int[5,7];
-       static int[] months = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-        public static int DayOfWeek( int month, int year)
+        /// <summary>
+        /// The array to store calendar
+        /// </summary>
+       public static int[,] arr = new int[5, 7];
+
+        /// <summary>
+        /// The months
+        /// </summary>
+       public static int[] months = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+
+        /// <summary>
+        /// Days the of week.
+        /// </summary>
+        /// <param name="month">The month.</param>
+        /// <param name="year">The year.</param>
+        /// <returns>returns the day which the day of week falls on</returns>
+        public static int DayOfWeek(int month, int year)
         {      
             int d = 1, y = year, m = month;
-            int y0 = y - (14 - m) / 12;
-            int x = y0 + y0 / 4 - y0 / 100 + y0 / 400;
-            int m0 = m + 12 * ((14 - m) / 12) - 2;
-            int d0 = (d + x + 31 + m0 / 12) % 7;
+            int y0 = y - ((14 - m) / 12);
+            int x = y0 + (y0 / 4) - (y0 / 100) + (y0 / 400);
+            int m0 = m + (12 * ((14 - m) / 12)) - 2;
+            int d0 = (d + x + 31 + (m0 / 12)) % 7;
             return d0;
         }
-        public void Calender(int month, int year)
+
+        /// <summary>
+        /// shows the calendar of specified month
+        /// </summary>
+        /// <param name="month">The month.</param>
+        /// <param name="year">The year.</param>
+        public void Calendar()
         {
             
         }
 
+        /// <summary>
+        /// Determines whether the given year is leap year or not.
+        /// </summary>
+        /// <param name="year">The year.</param>
+        /// <returns>
+        ///   <c>true</c> if given year is leap year; otherwise, <c>false</c>.
+        /// </returns>
         private static Boolean IsLeapYear(int year)
         {
             if (year > 999 && year < 9999)
@@ -612,100 +682,140 @@ using System.Text;
                 {
                     return true;
                 }
+
                 if (year % 400 == 0)
                 {
                     return true;
                 }
             }
+
             return false;
         }
     }
+
+    /// <summary>
+    /// Class to execute hashing function
+    /// </summary>
     public class HashingFunction
     {
-        internal int[,] hashvalue = new int[10, 10];
-        internal int remainder = new int();
-        internal int value;
+        /// <summary>
+        /// 2 D array to store Values
+        /// </summary>
+        internal int[,] hashValue = new int[10, 10];
+
+        /// <summary>
+        /// Initialization of Remainder
+        /// </summary>
+        internal int Remainder = new int();
+
+        /// <summary>
+        /// Gets or sets the value.
+        /// </summary>
+        /// <value>
+        /// The value.
+        /// </value>
+        private int Value { get; set; }
+
+        /// <summary>
+        /// Hashes the function.
+        /// </summary>
+        /// <param name="list">The list.</param>
+        /// <returns>returns array having Values stored</returns>
         public int[,] HashFunction(List<int> list)
         {
             int first = 0, second = 0, third = 0, fourth = 0, fifth = 0, sixth = 0, seventh = 0, eighth = 0, ninth = 0, tenth = 0;
             foreach (int number in list)
             {
-                if (Remainder(number) == 0)
+                if (this.RemainderOfNumber(number) == 0)
                 {
-                    hashvalue[0, first] = number;
+                    this.hashValue[0, first] = number;
                     first++;
                 }
-                else if (Remainder(number) == 1)
+                else if (this.RemainderOfNumber(number) == 1)
                 {
-                    hashvalue[1, second] = number;
+                    this.hashValue[1, second] = number;
                     second++;
                 }
-                else if (Remainder(number) == 2)
+                else if (this.RemainderOfNumber(number) == 2)
                 {
-                    hashvalue[2, third] = number;
+                    this.hashValue[2, third] = number;
                     third++;
                 }
-                else if (Remainder(number) == 3)
+                else if (this.RemainderOfNumber(number) == 3)
                 {
-                    hashvalue[3, fourth] = number;
+                    this.hashValue[3, fourth] = number;
                     fourth++;
                 }
-                else if (Remainder(number) == 4)
+                else if (this.RemainderOfNumber(number) == 4)
                 {
-                    hashvalue[4, fifth] = number;
+                    this.hashValue[4, fifth] = number;
                     fifth++;
                 }
-                else if (Remainder(number) == 5)
+                else if (this.RemainderOfNumber(number) == 5)
                 {
-                    hashvalue[5, sixth] = number;
+                    this.hashValue[5, sixth] = number;
                     sixth++;
                 }
-                else if (Remainder(number) == 6)
+                else if (this.RemainderOfNumber(number) == 6)
                 {
-                    hashvalue[6, seventh] = number;
+                    this.hashValue[6, seventh] = number;
                     seventh++;
                 }
-                else if (Remainder(number) == 7)
+                else if (this.RemainderOfNumber(number) == 7)
                 {
-                    hashvalue[7, eighth] = number;
+                    this.hashValue[7, eighth] = number;
                     eighth++;
                 }
-                else if (Remainder(number) == 8)
+                else if (this.RemainderOfNumber(number) == 8)
                 {
-                    hashvalue[8, ninth] = number;
+                    this.hashValue[8, ninth] = number;
                     ninth++;
                 }
-                else if (Remainder(number) == 9)
+                else if (this.RemainderOfNumber(number) == 9)
                 {
-                    hashvalue[9, tenth] = number;
+                    this.hashValue[9, tenth] = number;
                     tenth++;
                 }
             }
-            return hashvalue;
 
+            return this.hashValue;
         }
-        public int Remainder(int number)
+
+        /// <summary>
+        /// calculates Remainder of a given number
+        /// </summary>
+        /// <param name="number">The number.</param>
+        /// <returns>returns the Remainder of the given number</returns>
+        public int RemainderOfNumber(int number)
         {
-            while (number > 9)
-            {
-                this.remainder = number % 10;
-                number = number / 10;
-            }
-            return remainder;
+            ////while (number > 9)
+            ////{
+                this.Remainder = number % 11;
+                number = number / 11;
+            ////}
+
+            return this.Remainder;
         }
+
+        /// <summary>
+        /// Searches the specified number.
+        /// </summary>
+        /// <param name="number">The number.</param>
+        /// <returns>the index at which number is found</returns>
         public int Search(int number)
         {
             for (int i = 0; i < 10; i++)
             {
                 for (int j = 0; j < 10; j++)
                 {
-                    if (hashvalue[i, j] == number)
+                    if (this.hashValue[i, j] == number)
                     {
-                        value = i;
+                        this.Value = i;
                     }
                 }
             }
-            return value;
+
+            return this.Value;
         }
     }
 }

@@ -1,11 +1,22 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------
+// <copyright file="StackUsingLinkedList.cs" company="Bridgelabz">
+//     Company copyright tag.
+// </copyright>
+//-----------------------------------------------------------------------
+namespace DataStructures
+{
+    using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DataStructures
-{
-    class StackUsingLinkedList
+    /// <summary>
+    /// perform stack operations using linked list
+    /// </summary>
+   public class StackUsingLinkedList
     {
+        /// <summary>
+        /// determines anagram numbers those are prime
+        /// </summary>
         public static void PrimeAnagram()
         {
             AnagramStack stk = new AnagramStack();
@@ -21,16 +32,14 @@ namespace DataStructures
                         temp++;
                     }
                 }
+
                 if (temp == 0)
                 {
                     anagram[j] = num;
                     j++;
                 }
             }
-            ////for (int i = 0; i < anagram.Length; i++)
-            ////{
-            ////    Console.Write(anagram[i] + " ");
-            ////}
+         
             for (int i = 0; i < anagram.Length; i++)
             {
                 for (int k = i + 1; k < anagram.Length; k++)
@@ -40,9 +49,9 @@ namespace DataStructures
                         stk.Push(anagram[i]);
                         stk.Push(anagram[k]);
                     }
-                }
-                
+                }                
             }
+
             stk.Reverse();
             stk.Display();
         }

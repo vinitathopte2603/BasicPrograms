@@ -19,10 +19,18 @@ using System.Text;
         /// </summary>
         public static void BalanceParenthesis()
         {
+
             Console.WriteLine("Enter an expression : ");
             string expression = Console.ReadLine();
-            string result = Utility.IsBalanced(expression);
-            Console.WriteLine(result);
+            if (!expression.Contains('[') && !expression.Contains('(') && !expression.Contains('{') && !expression.Contains('}') && !expression.Contains(')') && !expression.Contains(']'))
+            {
+                Console.WriteLine("given expression is a string of characters only");
+            }
+            else
+            {
+                string result = Utility.IsBalanced(expression);
+                Console.WriteLine(result);
+            }          
         }
     }
 }

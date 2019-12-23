@@ -1,19 +1,30 @@
-﻿namespace DataStructures
+﻿//-----------------------------------------------------------------------
+// <copyright file="Queue.cs" company="Bridgelabz">
+//     Company copyright tag.
+// </copyright>
+//-----------------------------------------------------------------------
+namespace DataStructures
 {
     using System;
 using System.Collections.Generic;
 using System.Text;
 
-
-  class CashCountr
-    { 
+    /// <summary>
+    /// executes cash counter 
+    /// </summary>
+    public class CashCountr
+    {
+        /// <summary>
+        /// user input to perform operations on list
+        /// </summary>
         public static void CashCounter()
         {
-            Queue q = new Queue();
+            Queue q = new Queue();        
             int choice;
-            do
-            {
-                Console.WriteLine("\n 1 : Deposite \n 2 : Withdraw \n 3 : Exit");
+            bool flag = true;
+            while (flag)
+            { 
+            Console.WriteLine("\n 1 : Deposite \n 2 : Withdraw \n 3 : Exit");
                 Console.WriteLine("Enter your choice : ");
                 choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
@@ -31,12 +42,10 @@ using System.Text;
                         q.Display();
                         break;
                     case 3:
-                        Console.WriteLine("Enter valid choice ! ");
+                        flag = false;
                         break;
-                }
-                
-            }
-            while (choice < 4);
+                }               
+            } 
         }
     }
 }

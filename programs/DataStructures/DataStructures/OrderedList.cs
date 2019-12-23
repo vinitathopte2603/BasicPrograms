@@ -1,15 +1,24 @@
-﻿namespace DataStructures
+﻿//-----------------------------------------------------------------------
+// <copyright file="OrderedList.cs" company="Bridgelabz">
+//     Company copyright tag.
+// </copyright>
+//-----------------------------------------------------------------------
+namespace DataStructures
 {
     using System;
-using System.Collections.Generic;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.IO;
-using System.Text;
-using System.Collections;
- 
+    using System.Text;
 
-
-    class OrderedLnkdList
+    /// <summary>
+    /// class to read elements from a file and perform sorting operation
+    /// </summary>
+   public class OrderedLnkdList
     {
+        /// <summary>
+        /// sorts the linked list in ascending order
+        /// </summary>
         public static void OrderedLinkedList()
         {
             OrderedList lst = new OrderedList();
@@ -23,21 +32,23 @@ using System.Collections;
             {
                 elements[i] = Convert.ToInt32(arr[i]);
             }
+
             for (int i = 0; i < arr.Length; i++)
             {
                 lst.InsertFirst(elements[i]);
             }
+
             lst.Display();
             Console.WriteLine("\n Sorted list");
             lst.Sort();
-            Console.WriteLine("Enter element to be searched : ");
+            lst.Display();
+            Console.WriteLine("\nEnter element to be searched : ");
             int searchele = Convert.ToInt32(Console.ReadLine());
             lst.Search(searchele);
             lst.Sort();
             Console.WriteLine();
             lst.Display();
-        }
-       
+        }      
     }
 }
 ////List<int> lst = new List<int>();
