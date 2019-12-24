@@ -46,8 +46,8 @@ namespace DataStructures
                 {
                     if (Utility.IsAnagram(anagram[i], anagram[k]))
                     {
-                        queue.Insert(anagram[i]);
-                        queue.Insert(anagram[k]);
+                        queue.Insert(anagram[i].ToString());
+                        queue.Insert(anagram[k].ToString());
                     }
                 }
             }

@@ -32,7 +32,7 @@ using System.Text;
                     case 1:
                         Console.WriteLine("Insert amount to be deposited : ");
                         int depo_amt = Convert.ToInt32(Console.ReadLine());
-                        q.Insert(depo_amt);
+                        q.Insert(depo_amt.ToString());
                         q.Display();
                         break;
                     case 2:

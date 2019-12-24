@@ -6,6 +6,7 @@
 namespace DataStructures
 {
     using System;
+    using System.Text.RegularExpressions;
 
     /// <summary>
     /// entry point of the program
@@ -23,10 +24,29 @@ namespace DataStructures
                 bool flag = true;
                 while (flag)
                 {
-                    Console.WriteLine("\n 1 : 2D Array \n 2 : Palindrome checker \n 3 : Unordered linked list \n 4 : Balanced parenthesis \n 5 : Ordered linked list \n 6 : Queue \n 7 : Dequeue \n 8 : Prime anagram \n 9 : Stack using linked list \n 10 : Queue using linked list \n 11 : Hashing function \n 12 : Exit");
+                    Console.WriteLine("\n 1 : 2D Array \n 2 : Palindrome checker \n 3 : Unordered linked list \n 4 : Balanced parenthesis \n 5 : Ordered linked list \n 6 : Queue \n 7 : Dequeue \n 8 : Prime anagram \n 9 : Stack using linked list \n 10 : Queue using linked list \n 11 : Hashing function \n 12 : Monthly calendar \n 13 : Calendar using queue \n 14 : Exit");
                     Console.WriteLine("Enter your choice : ");
-                    int choice = Convert.ToInt32(Console.ReadLine());
-                    switch (choice)
+                    string choice = Console.ReadLine();
+                    string choiceInputPattern = @"^(1[0-4]|[1-9])$";
+                    string digitPattern = @"^[0-9]*$";
+                    int choiceInput = 0;
+                    if (Regex.IsMatch(choice.ToString(), digitPattern))
+                    {
+                        if (!Regex.IsMatch(choice.ToString(), choiceInputPattern))
+                        {
+                            Console.WriteLine("enter valid choice");
+                        }
+                        else
+                        {
+                            choiceInput = Convert.ToInt32(choice);
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("enter valid input");
+                    }
+
+                    switch (choiceInput)
                     {
                         case 1:
                             TwoDimensionalArray.TwoDArray();
@@ -62,6 +82,12 @@ namespace DataStructures
                             HashFunctionCall.CallingHash();
                             break;
                         case 12:
+                            Calendar.MonthlyCalendarCall();
+                            break;
+                        case 13:
+                            CalendarQueue.CalendarQue();
+                            break;
+                        case 14:
                             flag = false;
                             break;
                     }

@@ -17,9 +17,9 @@ using System.Text;
         /// <summary>
         /// takes month and year as user input to display monthly calendar.
         /// </summary>
-        public static void MonthlyCalendar()
+        public static void MonthlyCalendarCall()
         {
-            
+            MonthlyCalender.Calendar();
         }
     }
 }

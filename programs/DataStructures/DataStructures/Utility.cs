@@ -8,7 +8,7 @@ namespace DataStructures
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using System.Text;
+    using System.Text.RegularExpressions;
 
     /// <summary>
     /// Utility class containing logic 
@@ -109,6 +109,51 @@ namespace DataStructures
         }
 
         /// <summary>
+        /// using queue to print calendar of a month
+        /// </summary>
+        /// <param name="year">The year.</param>
+        /// <param name="month">The month.</param>
+        public static void CalendarUsingQueue(int year, int month)
+        {
+            DateTime dt = new DateTime(year, month, 1);
+            int days = DateTime.DaysInMonth(year, month);
+           //// Console.WriteLine(dt.DayOfWeek);
+            string dayOfWeek = dt.DayOfWeek.ToString();
+            int firstDayOfMonth = (int)dt.DayOfWeek;
+            Queue queue = new Queue();
+            Queue queue1 = new Queue();
+
+            for (int i = 1; i < 32; i++)
+            {
+                queue.Insert(i.ToString());
+            }
+
+            queue1.Insert("Sunday");
+            queue1.Insert("Monday");
+            queue1.Insert("Tuesday");
+            queue1.Insert("Wednesday");
+            queue1.Insert("Thursday");
+            queue1.Insert("Friday");
+            queue1.Insert("Saturday");
+            Console.WriteLine("Sun\tMon\tTues\tWed\tThur\tFri\tSat");
+            for (int j = 0; j < firstDayOfMonth; j++)
+            {
+                Console.Write("\t");
+            }
+
+            for (int i = 1; i <= days; i++)
+            {
+                Console.Write(queue.front.data + "\t");
+                if ((i + firstDayOfMonth) % 7 == 0 || i == 31)
+                {
+                    Console.WriteLine();
+                }
+
+                queue.Remove();
+            }
+        }
+
+        /// <summary>
         /// Determines whether prime number are anagram.
         /// </summary>
         public static void IsPrimeAnagram()
@@ -125,11 +170,13 @@ namespace DataStructures
                         temp++;
                     }
                 }
+
                 if (temp == 0)
                 {
                     prime.Add(num);
                 }
             }
+
             for (int i = 0; i < prime.Count; i++)
             {
                 for (int l = i + 1; l < prime.Count; l++)
@@ -151,7 +198,7 @@ namespace DataStructures
         /// <returns>
         ///   <c>true</c> if the specified numbers are anagram; otherwise, <c>false</c>.
         /// </returns>
-        public static bool IsAnagram(int num1,int num2)
+        public static bool IsAnagram(int num1, int num2)
         {
             int[] arr1 = Count(num1);
             int[] arr2 = Count(num2);
@@ -163,6 +210,7 @@ namespace DataStructures
                     return false;
                 }
             }
+
             return true;
         }
 
@@ -180,8 +228,10 @@ namespace DataStructures
                 arr[n % 10]++;
                 n = n / 10;
             }
+
             return arr;
         }
+
         /// <summary>
         /// Determines whether the specified string is palindrome.
         /// </summary>
@@ -268,9 +318,21 @@ namespace DataStructures
     /// </summary>
     public class QNode
     {
-        public int data;
+        /// <summary>
+        /// The data
+        /// </summary>
+        public string data;
+
+        /// <summary>
+        /// The nextnode
+        /// </summary>
         public QNode nextnode;
-        public QNode(int d)
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="QNode"/> class.
+        /// </summary>
+        /// <param name="d">The data.</param>
+        public QNode(string d)
         {
             data = d;
             nextnode = null;
@@ -282,9 +344,9 @@ namespace DataStructures
     /// </summary>
     public class Queue
     {
-        QNode front;
+       public QNode front;
         QNode rear;
-        public void Insert(int newdata)
+        public void Insert(string newdata)
         {
             QNode newnode = new QNode(newdata);
             if (front == null)
@@ -322,6 +384,18 @@ namespace DataStructures
                 Console.Write(temp.data + " ");
                 temp = temp.nextnode;
             }
+        }
+
+        public int Count()
+        {
+            QNode temp = front;
+            int count = 0;
+            while (temp != null)
+            {
+                count++;
+                temp = temp.nextnode;
+            }
+            return count;
         }
     }
         class StkNode
@@ -647,7 +721,7 @@ namespace DataStructures
         /// <param name="month">The month.</param>
         /// <param name="year">The year.</param>
         /// <returns>returns the day which the day of week falls on</returns>
-        public static int DayOfWeek(int month, int year)
+        public static int DayOfWeek(int month, int year,int day)
         {      
             int d = 1, y = year, m = month;
             int y0 = y - ((14 - m) / 12);
@@ -657,14 +731,78 @@ namespace DataStructures
             return d0;
         }
 
+        public static bool IsYearValid(int year)
+        {
+            string pattern = @"^[0 - 9]{1,4}$";
+            bool flag = Regex.IsMatch(year.ToString(), pattern);
+            return flag;       
+        }
+
+        public static bool IsMonthValid(int month)
+        {
+            string pattern = @"^(1[0-2]|[1-9])$";
+            bool flag = Regex.IsMatch(month.ToString(), pattern);
+            return flag;
+        }
+
         /// <summary>
         /// shows the calendar of specified month
         /// </summary>
         /// <param name="month">The month.</param>
         /// <param name="year">The year.</param>
-        public void Calendar()
+        public static void Calendar()
         {
-            
+            try
+            {
+                int month;
+                int year;
+                do
+                {
+                    Console.WriteLine("Enter month : ");
+                    month = Convert.ToInt32(Console.ReadLine());
+                    if (!IsMonthValid(month))
+                    {
+                        Console.WriteLine("Enter valid month!");
+                    }
+
+                }
+                while (month < 1 || month > 12);
+                do
+                {
+                    Console.WriteLine("Enter year : ");
+                    year = Convert.ToInt32(Console.ReadLine());
+                    if (!IsYearValid(year))
+                    {
+                        Console.WriteLine("Enter valid year!");
+                    }
+                }
+                while (year < 1000 || year > 9999);
+                string[] monthsOfYear = { string.Empty, "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
+                int[] days = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+                if (month == 2 && IsLeapYear(year))
+                {
+                    days[month] = 29;
+                }
+                int day = MonthlyCalender.DayOfWeek(month, year, 1);
+
+                Console.WriteLine("Mon\tTues\tWed\tThur\tFri\tSat\tSun");
+                for (int j = 0; j < day; j++)
+                {
+                    Console.Write("\t");
+                }
+                for (int i = 1; i <= days[month]; i++)
+                {
+                    Console.Write(i + "\t");
+                    if ((i + day) % 7 == 0 || (i == days[month]))
+                    {
+                        Console.WriteLine();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
 
         /// <summary>
@@ -674,7 +812,7 @@ namespace DataStructures
         /// <returns>
         ///   <c>true</c> if given year is leap year; otherwise, <c>false</c>.
         /// </returns>
-        private static Boolean IsLeapYear(int year)
+        public static Boolean IsLeapYear(int year)
         {
             if (year > 999 && year < 9999)
             {

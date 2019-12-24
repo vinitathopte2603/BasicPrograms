@@ -74,35 +74,43 @@ using System.Text;
         /// </summary>
         public static void CheckPalindrome()
         {
-            Console.WriteLine("Enter a string : ");
-            string str = Console.ReadLine();
-            Dequeue d = new Dequeue();
-            char[] arr = str.ToCharArray();
-            for (int i = 0; i < arr.Length; i++)
+            try
             {
-               d.InsertRear(d, arr[i]);
-            }
 
-            d.Display(d);
-            int count = Dequeue.Count(d);
-            int flag = 0;
-            while (count > 1)
-            {
-                count = count - 2;
-                if (d.RemoveRear(d) != d.RemoveFront(d))
+                Console.WriteLine("Enter a string : ");
+                string str = Console.ReadLine();
+                Dequeue d = new Dequeue();
+                char[] arr = str.ToCharArray();
+                for (int i = 0; i < arr.Length; i++)
                 {
-                    flag = 1;
-                    break;
+                    d.InsertRear(d, arr[i]);
+                }
+
+                d.Display(d);
+                int count = Dequeue.Count(d);
+                int flag = 0;
+                while (count > 1)
+                {
+                    count = count - 2;
+                    if (d.RemoveRear(d) != d.RemoveFront(d))
+                    {
+                        flag = 1;
+                        break;
+                    }
+                }
+
+                if (flag == 0 && count == 1)
+                {
+                    Console.WriteLine("Palindrome");
+                }
+                else
+                {
+                    Console.WriteLine("Not palindrome");
                 }
             }
-            
-            if (flag == 0 && count == 1)
+            catch (Exception e)
             {
-                Console.WriteLine("Palindrome");
-            }
-            else
-            {
-                Console.WriteLine("Not palindrome");
+                Console.WriteLine(e.Message);
             }
         }
 

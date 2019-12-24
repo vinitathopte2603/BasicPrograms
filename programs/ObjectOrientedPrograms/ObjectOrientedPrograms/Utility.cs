@@ -118,14 +118,11 @@ namespace ObjectOrientedPrograms
             char answer = ' ';
             string jsonfiledata;
             List<AddressBookDetails> user = new List<AddressBookDetails>();
-           // List<AddressBookUserDetails> user = new List<AddressBookUserDetails>();
               AddressBookDetails bookdetails = new AddressBookDetails();
-           // AddressBookUserDetails bookdetails = new AddressBookUserDetails();
             do
             {
                 Console.WriteLine("Enter your details : ");
                  AddressBookInputAndValidation userinput = new AddressBookInputAndValidation();
-               // AddressBookInputAndValidation.InputAndValidation();
                 user.Add(userinput.InputAndValidation());
                 jsonfiledata = JsonConvert.SerializeObject(user);
                 Console.WriteLine(jsonfiledata);
