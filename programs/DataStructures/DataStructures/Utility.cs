@@ -1,5 +1,5 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="Utility.cs" company="Bridgelabz">
+// <copyright file="Utility.cs" Author ="Vinita Thopte" company="Bridgelabz">
 //     Company copyright tag.
 // </copyright>
 //-----------------------------------------------------------------------
@@ -121,20 +121,20 @@ namespace DataStructures
             string dayOfWeek = dt.DayOfWeek.ToString();
             int firstDayOfMonth = (int)dt.DayOfWeek;
             Queue queue = new Queue();
-            Queue queue1 = new Queue();
+            //Queue queue1 = new Queue();
 
             for (int i = 1; i < 32; i++)
             {
                 queue.Insert(i.ToString());
             }
 
-            queue1.Insert("Sunday");
-            queue1.Insert("Monday");
-            queue1.Insert("Tuesday");
-            queue1.Insert("Wednesday");
-            queue1.Insert("Thursday");
-            queue1.Insert("Friday");
-            queue1.Insert("Saturday");
+            //queue1.Insert("Sunday");
+            //queue1.Insert("Monday");
+            //queue1.Insert("Tuesday");
+            //queue1.Insert("Wednesday");
+            //queue1.Insert("Thursday");
+            //queue1.Insert("Friday");
+            //queue1.Insert("Saturday");
             Console.WriteLine("Sun\tMon\tTues\tWed\tThur\tFri\tSat");
             for (int j = 0; j < firstDayOfMonth; j++)
             {

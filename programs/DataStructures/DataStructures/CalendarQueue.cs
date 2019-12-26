@@ -24,7 +24,7 @@ using System.Collections.Generic;
                 Console.WriteLine("Enter year : ");
                 string yearInput = Console.ReadLine();
                 string digitPattern = @"^[0-9]*$";
-                if (Regex.IsMatch(yearInput.ToString(), digitPattern))       
+                if (Regex.IsMatch(yearInput.ToString(), digitPattern))
                 {
                     int year = Convert.ToInt32(yearInput);
                     if (!MonthlyCalender.IsYearValid(year))
