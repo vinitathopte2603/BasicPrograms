@@ -1,0 +1,23 @@
+[
+  {
+    "stockName": "Capgemini",
+    "numberOfShares": 20.00,
+    "sharePrice": 15000
+  },
+  {
+    "stockName": "IBM",
+    "numberOfShares": 40.00,
+    "sharePrice": 13000
+  },
+  {
+    "stockName": "KPIT",
+    "numberOfShares": 35.00,
+    "sharePrice": 18000
+  },
+  {
+    "stockName": "Infosys",
+    "numberOfShares": 23.00,
+    "sharePrice": 11000
+  }
+
+]

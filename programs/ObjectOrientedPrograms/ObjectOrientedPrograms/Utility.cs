@@ -115,22 +115,22 @@ namespace ObjectOrientedPrograms
         public static void AddressBookInput()
         {
             string path = @"D:\bridgelabz\programs\ObjectOrientedPrograms\ObjectOrientedPrograms\AddressBook.json";
-            char answer = ' ';
+            char answer;
             string jsonfiledata;
             List<AddressBookDetails> user = new List<AddressBookDetails>();
-              AddressBookDetails bookdetails = new AddressBookDetails();
+             //// AddressBookDetails bookdetails = new AddressBookDetails();
             do
             {
                 Console.WriteLine("Enter your details : ");
                  AddressBookInputAndValidation userinput = new AddressBookInputAndValidation();
                 user.Add(userinput.InputAndValidation());
                 jsonfiledata = JsonConvert.SerializeObject(user);
-                Console.WriteLine(jsonfiledata);
+              ////  Console.WriteLine(jsonfiledata);
                 Console.WriteLine("Do you wan to continue ? ");
                 answer = Convert.ToChar(Console.ReadLine());
             }
             while (answer == 'y' || answer == 'Y');
-            File.WriteAllText(path, jsonfiledata);
+            File.AppendAllText(path, jsonfiledata);
         }
         public static void DisplayAddressBook()
         {
@@ -148,29 +148,73 @@ namespace ObjectOrientedPrograms
             }
            
         }
-        public static void ReplaceStringInputValidation()
+
+        public static void EditInformation()
         {
-            string message = " Hello <<name>>, we have your full name as <<fullName>> in our system.\n" +
-          " Your contact number is 91-xxxxxxxxxx. Please let us know in case of any clarification.\n" +
-          " Thank you, Bridgelabz \n" +
-          " xx/xx/xxxx";
-            Console.WriteLine("Enter your details : ");
-            Console.WriteLine("Enter your firstname : ");
-            string firstName = Console.ReadLine();
-            Console.WriteLine("Enter your lastname : ");
-            string lastName = Console.ReadLine();
-            Console.WriteLine("Enter your contact number : ");
-            long contactNumber = Convert.ToInt64(Console.ReadLine());
+            Console.WriteLine("Enter first name of the person whose data to be edited : ");
+            string name = Console.ReadLine();
+            string path = @"D:\bridgelabz\programs\ObjectOrientedPrograms\ObjectOrientedPrograms\AddressBook.json";
+            string jsondata = File.ReadAllText(path);
+            var objectArray = JsonConvert.DeserializeObject<List<AddressBookDetails>>(jsondata);
+            List<AddressBookDetails> list = objectArray;
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (name == list[i].firstName)
+                {
+                    Console.WriteLine("select data to edit : ");
+                    Console.WriteLine("\n 1 : Firstname \n 2 : Lastname \n 3 : Contact number \n 4 : Email address \n 5 : Address");
+                    int choice = Convert.ToInt32(Console.ReadLine());
+                    switch (choice)
+                    {
+                        case 1:
+                            Console.WriteLine("Enter new first name  : ");
+                            string newFirstName = Console.ReadLine();
+                            list[i].firstName = newFirstName;
+                            break;
+                        case 2:
+                            Console.WriteLine("Enter new last name : ");
+                            string newLastName = Console.ReadLine();
+                            list[i].lastName = newLastName;
+                            break;
+                        case 3:
+                            Console.WriteLine("Enter new contact number : ");
+                            long newContactNumber = Convert.ToInt64(Console.ReadLine());
+                            break;
+                        case 4:
+                            Console.WriteLine("Enter new email address : ");
+                            string newEmailAdress = Console.ReadLine();
+                            list[i].emailAddress = newEmailAdress;
+                            break;
+                        case 5:
+                            Console.WriteLine("Enter new address : ");
+                            string newAddress = Console.ReadLine();
+                            list[i].address = newAddress;
+                            break;
+                        case 6:
+                            Console.WriteLine("Enter valid choice");
+                            break;
+                    }
+
+                }
+            }
+            using (StreamWriter file = File.CreateText(@"D:\bridgelabz\programs\ObjectOrientedPrograms\ObjectOrientedPrograms\AddressBook.json"))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+                serializer.Serialize(file, list);
+            }
+        }
+        public static string ReplaceStringInputValidation(string message, string firstName, string lastName, long contactNumber)
+        { 
             string fName = Utility.ReplaceStringValidateName(firstName);
             string fullName = fName + " " + Utility.ReplaceStringValidateName(lastName);
             long contactNum = Utility.ReplaceStringValidateContactNumber(contactNumber);
-            string date = DateTime.Today.ToString("dd-mm-yyyy");
+            string date = DateTime.Today.ToString("dd/mm/yyyy");
             message = message.Replace("<<name>>", fName);
             message = message.Replace("<<fullName>>", fullName);
             message = message.Replace("xxxxxxxxxx", contactNum.ToString());
             message = message.Replace("xx/xx/xxxx", date);
             Console.WriteLine();
-            Console.WriteLine(message);
+            return message;
 
         }
         private static string ReplaceStringValidateName(string name)
@@ -182,7 +226,8 @@ namespace ObjectOrientedPrograms
                 isFirstNameValid = Regex.IsMatch(name, namePattern);
                 if (!isFirstNameValid)
                 {
-                    Console.WriteLine("Enter valid First name");
+                    Console.WriteLine("Enter valid name");
+                    break;
                 }
             }
             while (!isFirstNameValid);
