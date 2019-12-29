@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ObjectOrientedPrograms
 {
-    class Node
+   public class Node
     {
        public object data;
        public Node nextnode;
@@ -14,9 +14,9 @@ namespace ObjectOrientedPrograms
             nextnode = null;
         }
     }
-    class LinkedList<T>
+   public class Linkedlist<T>
     {
-        Node head;
+       public Node head;
         public void Insert(object newdata)
         {
             Node newnode = new Node(newdata);

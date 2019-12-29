@@ -1,0 +1,47 @@
+[
+  {
+    "Name": "Avish",
+    "Id": 11,
+    "Share": 314
+  },
+  {
+    "Name": "Sandhya",
+    "Id": 22,
+    "Share": 225
+  },
+  {
+    "Name": "Yash",
+    "id": 33,
+    "Share": 1
+  },
+  {
+    "Name": "Swami",
+    "Id": 44,
+    "Share": 588
+  },
+  {
+    "Name": "Ritesh",
+    "Id": null,
+    "Share": "15"
+  },
+  {
+    "Name": "Khushi",
+    "Id": 82,
+    "Share": 35
+  },
+  {
+    "Name": "Nidhi",
+    "Id": 3,
+    "Share": 370
+  },
+  {
+    "Name": "ghj",
+    "Id": 53,
+    "Share": "fghj"
+  },
+  {
+    "Name": "dh",
+    "Id": 7,
+    "Share": "gffg"
+  }
+]

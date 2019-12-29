@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\bridgelabz\\programs\\ObjectOrientedPrograms\\ObjectOrientedPrograms\\ObjectOrientedPrograms.csproj": {}
+    "F:\\Bridgelabz\\BasicPrograms\\programs\\ObjectOrientedPrograms\\ObjectOrientedPrograms\\ObjectOrientedPrograms.csproj": {}
   },
   "projects": {
-    "D:\\bridgelabz\\programs\\ObjectOrientedPrograms\\ObjectOrientedPrograms\\ObjectOrientedPrograms.csproj": {
+    "F:\\Bridgelabz\\BasicPrograms\\programs\\ObjectOrientedPrograms\\ObjectOrientedPrograms\\ObjectOrientedPrograms.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\bridgelabz\\programs\\ObjectOrientedPrograms\\ObjectOrientedPrograms\\ObjectOrientedPrograms.csproj",
+        "projectUniqueName": "F:\\Bridgelabz\\BasicPrograms\\programs\\ObjectOrientedPrograms\\ObjectOrientedPrograms\\ObjectOrientedPrograms.csproj",
         "projectName": "ObjectOrientedPrograms",
-        "projectPath": "D:\\bridgelabz\\programs\\ObjectOrientedPrograms\\ObjectOrientedPrograms\\ObjectOrientedPrograms.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "D:\\bridgelabz\\programs\\ObjectOrientedPrograms\\ObjectOrientedPrograms\\obj\\",
+        "projectPath": "F:\\Bridgelabz\\BasicPrograms\\programs\\ObjectOrientedPrograms\\ObjectOrientedPrograms\\ObjectOrientedPrograms.csproj",
+        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
+        "outputPath": "F:\\Bridgelabz\\BasicPrograms\\programs\\ObjectOrientedPrograms\\ObjectOrientedPrograms\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

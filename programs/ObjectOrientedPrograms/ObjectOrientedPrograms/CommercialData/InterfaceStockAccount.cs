@@ -4,13 +4,12 @@ using System.Text;
 
 namespace ObjectOrientedPrograms
 {
-    interface InterfaceStockAccount
+   public interface InterfaceStockAccount
     {
-        void Buy(long NumberOfShares, double price, string symbol);
+        void Buy(string name, string symbol, int share, int price);
         void PrintReport();
         void Sell(string symbol);
         void PrintSymbols();
-        double ValueOf();
 
     }
 }

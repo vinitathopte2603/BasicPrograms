@@ -1,0 +1,38 @@
+[
+  {
+    "Name": "TCS",
+    "Symbol": "T",
+    "Share": 89,
+    "Price": 200
+  },
+  {
+    "Name": "IBM",
+    "Symbol": "I",
+    "Share": 290,
+    "Price": 400
+  },
+  {
+    "Name": "L&T",
+    "Symbol": "LT",
+    "Share": 5,
+    "Price": 600
+  },
+  {
+    "Name": "Infosys",
+    "Symbol": "I",
+    "Share": 440,
+    "Price": 300
+  },
+  {
+    "Name": "BridgeLabz",
+    "Symbol": "B",
+    "Share": 270,
+    "Price": 250
+  },
+  {
+    "Name": "Yatra",
+    "Symbol": "Y",
+    "Share": 88,
+    "Price": 130
+  }
+]
