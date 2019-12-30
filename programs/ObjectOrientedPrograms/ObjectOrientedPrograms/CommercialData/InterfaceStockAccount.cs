@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ObjectOrientedPrograms
 {
-   public interface InterfaceStockAccount
+    interface InterfaceStockAccount
     {
         void Buy(string name, string symbol, int share, int price);
         void PrintReport();

@@ -23,7 +23,7 @@ namespace ObjectOrientedPrograms
             {
                 while (flag == true)
                 {
-                    Console.WriteLine("\n 1 : Inventory management \n 2 : Inventory management customers \n 3 : Address book \n 4 : Replace string \n 5 : Stock Report \n 6 : Deck of cards \n 7 : Exit");
+                    Console.WriteLine("\n 1 : Inventory management \n 2 : Inventory management customers \n 3 : Address book \n 4 : Replace string \n 5 : Stock Report \n 6 : Deck of cards \n 7 : Commercial data processing \n 8 : Clinic management \n 9 : Exit");
                     Console.WriteLine("Enter your choice  : ");
                     int choice = Convert.ToInt32(Console.ReadLine());
                     switch (choice)
@@ -46,6 +46,12 @@ namespace ObjectOrientedPrograms
                             PrintDeckOfCards.PrintDeckCards();
                             break;
                         case 7:
+                            UserInput.InputFromUser();
+                            break;
+                        case 8:
+                            ClinicManagement.Appointment();
+                            break;
+                        case 9:
                             flag = false;
                             break;
                     }

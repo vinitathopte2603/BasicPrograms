@@ -4,40 +4,33 @@ using System.Text;
 
 namespace ObjectOrientedPrograms
 {
-   public class UserInput
+    class ClinicManagement
     {
-        public static void InputFromUser()
+        public static void Appointment()
         {
-            StockAccount stockAccount = new StockAccount();
             bool flag = true;
             try
             {
                 while (flag)
                 {
-                    Console.WriteLine("\n 1 : Buy the Share \n 2 : Sell a Share \n 3 : View Existing Shares \n 4 : View Symobol Purchased \n 5 : Exit");
+                    Console.WriteLine("\n 1 : Doctor's Information \n 2 : Patient's Information \n 3 : Book an appointment \n 4 : Exit");
                     Console.WriteLine("Enter your choice : ");
-                    int input = Convert.ToInt32(Console.ReadLine());
-                    switch (input)
+                    int choice = Convert.ToInt32(Console.ReadLine());
+                    switch (choice)
                     {
                         case 1:
-                            CommercialUtility.BuyStake();
+                            ClinicUtility.DoctorAvailability();
                             break;
-
                         case 2:
-                            CommercialUtility.SellStake();
+                            ClinicUtility.PatientInformation();
                             break;
-
                         case 3:
-                            CommercialUtility.PrintReport();
+                            ClinicUtility.BookAnAppointment();
                             break;
-
                         case 4:
-                            CommercialUtility.PrintSymbol();
-                            break;
-
-                        case 5:
                             flag = false;
                             break;
+
                     }
                 }
             }

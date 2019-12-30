@@ -8,16 +8,21 @@ namespace ObjectOrientedPrograms
 {
    public class StockAccount:InterfaceStockAccount
     {
-       static string path = @"D:\bridgelabz\programs\ObjectOrientedPrograms\ObjectOrientedPrograms\CommercialData.json";
+       static string path = @"D:\bridgelabz\programs\ObjectOrientedPrograms\ObjectOrientedPrograms\Company.json";
         public void Buy(string name, string symbol, int share, int price)
         {
             if (File.Exists(path))
             {
                 string jsonData = File.ReadAllText(path);
-                var jsonObjectArray = JsonConvert.DeserializeObject<Linkedlist<Companies>>(jsonData);
-                Linkedlist<Companies> list = jsonObjectArray;
+                var jsonObjectArray = JsonConvert.DeserializeObject<List<Companies>>(jsonData);
+                List<Companies> list = jsonObjectArray;
                 Companies companies = new Companies();
-                list.Insert(companies);
+                companies.Name = name;
+                companies.Symbol = symbol;
+                companies.Share = share;
+                companies.Price = price;
+                companies.PurchaseDate = DateTime.Now.ToString();
+                list.Add(companies);
                 string jsonContent = JsonConvert.SerializeObject(list);
                 File.WriteAllText(path, jsonContent);
 
@@ -27,48 +32,47 @@ namespace ObjectOrientedPrograms
        public void PrintReport()
         {
             string jsondata = File.ReadAllText(path);
-            var objectArray = JsonConvert.DeserializeObject<Linkedlist<Companies>>(jsondata);
-            Linkedlist<Companies> list = objectArray;
-            Companies companies = new Companies();
-            ////foreach (Companies details in list)
-            ////{
-            ////    Console.WriteLine(" ");
-            ////    Console.WriteLine(details.Name);
-            ////    Console.WriteLine(details.Symbol);
-            ////    Console.WriteLine(details.Share);
-            ////    Console.WriteLine(details.Price);
-            ////}
-            for (int i = 0; i < list.Count(); i++)
+            var objectArray = JsonConvert.DeserializeObject<List<Companies>>(jsondata);
+            List<Companies> list = objectArray;
+            foreach (Companies details in list)
             {
-                Console.WriteLine(companies.Name);
+                Console.WriteLine(" ");
+                Console.WriteLine("Name of company : " + details.Name);
+                Console.WriteLine("Symbol : " + details.Symbol);
+                Console.WriteLine("Number of shares : " + details.Share);
+                Console.WriteLine("Price of the shares : " + details.Price);
+                Console.WriteLine("Purchased time : " + details.PurchaseDate);
             }
         }
-       public void Sell(string symbol)
+        public void Sell(string symbol)
         {
             string jsondata = File.ReadAllText(path);
-            var objectArray = JsonConvert.DeserializeObject<Linkedlist<Companies>>(jsondata);
-            Linkedlist<Companies> list = objectArray;
-            Companies companies = new Companies();
+            var objectArray = JsonConvert.DeserializeObject<List<Companies>>(jsondata);
+            List<Companies> list = objectArray;
             int count = 0;
-            for (int i = 0; i < list.Count(); i++)
-            {
+           foreach(Companies details in  list)
+            { 
                 count++;
-                if (companies.Symbol.Equals(symbol))
+                if (details.Symbol.Equals(symbol))
                 {
-                    list.DeleteAtPosition(count);
-                }
+                    list.Remove(details);
+                    Console.WriteLine("Shares sold");
+                    string data = JsonConvert.SerializeObject(list);
+                    File.WriteAllText(path, data);
+                    break;
+                }  
             }
         }
        public void PrintSymbols()
         {
             string jsondata = File.ReadAllText(path);
-            var objectArray = JsonConvert.DeserializeObject<Linkedlist<Companies>>(jsondata);
-            Linkedlist<Companies> list = objectArray;
+            var objectArray = JsonConvert.DeserializeObject<List<Companies>>(jsondata);
+            List<Companies> list = objectArray;
             Stack stack = new Stack();
             Companies companies = new Companies();
-            for (int i = 0; i < list.Count(); i++)
-            {
-                stack.Push(companies.Symbol);
+           foreach(Companies companies1 in list)
+            { 
+                stack.Push(companies1.Symbol);
             }
             stack.Display();
         }

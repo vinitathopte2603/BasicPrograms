@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ObjectOrientedPrograms
+namespace DesignPatterns
 {
-   public class Customers
+    class SingletonDesignPattern
     {
 
     }

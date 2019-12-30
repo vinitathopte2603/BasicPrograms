@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\bridgelabz\\programs\\ObjectOrientedPrograms\\ObjectOrientedPrograms\\ObjectOrientedPrograms.csproj": {}
+    "D:\\bridgelabz\\programs\\DesignPatterns\\DesignPatterns\\DesignPatterns.csproj": {}
   },
   "projects": {
-    "D:\\bridgelabz\\programs\\ObjectOrientedPrograms\\ObjectOrientedPrograms\\ObjectOrientedPrograms.csproj": {
+    "D:\\bridgelabz\\programs\\DesignPatterns\\DesignPatterns\\DesignPatterns.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\bridgelabz\\programs\\ObjectOrientedPrograms\\ObjectOrientedPrograms\\ObjectOrientedPrograms.csproj",
-        "projectName": "ObjectOrientedPrograms",
-        "projectPath": "D:\\bridgelabz\\programs\\ObjectOrientedPrograms\\ObjectOrientedPrograms\\ObjectOrientedPrograms.csproj",
+        "projectUniqueName": "D:\\bridgelabz\\programs\\DesignPatterns\\DesignPatterns\\DesignPatterns.csproj",
+        "projectName": "DesignPatterns",
+        "projectPath": "D:\\bridgelabz\\programs\\DesignPatterns\\DesignPatterns\\DesignPatterns.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "D:\\bridgelabz\\programs\\ObjectOrientedPrograms\\ObjectOrientedPrograms\\obj\\",
+        "outputPath": "D:\\bridgelabz\\programs\\DesignPatterns\\DesignPatterns\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -37,12 +37,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "dependencies": {
-            "Newtonsoft.Json": {
-              "target": "Package",
-              "version": "[12.0.3, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",

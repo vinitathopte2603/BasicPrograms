@@ -60,7 +60,7 @@ namespace ObjectOrientedPrograms
             StkNode temp = top;
             while (temp != null)
             {
-                Console.Write(temp.data + " ");
+                Console.Write(temp.data + ", ");
                 temp = temp.nextnode;
             }
         }
