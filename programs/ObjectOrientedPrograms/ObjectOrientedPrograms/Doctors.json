@@ -1,7 +1,7 @@
 [
   {
     "DoctorName": "Dr.Pooja Todkar",
-    "Id": 32,
+    "Id": 1,
     "Speciality": "Orthopediac",
     "Availability": "AM"
   },
@@ -13,49 +13,49 @@
   },
   {
     "DoctorName": "Dr.Arti Todkar",
-    "Id": 7,
+    "Id": 3,
     "Speciality": "Opthalmologist",
     "Availability": "PM"
   },
   {
     "DoctorName": "Dr.Ankit Thopte",
-    "Id": 11,
+    "Id": 4,
     "Speciality": "Dietician",
     "Availability": "Both"
   },
   {
     "DoctorName": "Dr.Nikhil Raut",
-    "Id": 4,
+    "Id": 5,
     "Speciality": "Dermatologist",
     "Availability": "Both"
   },
   {
     "DoctorName": "Dr.Shehnaz Attar",
-    "Id": 30,
+    "Id": 6,
     "Speciality": "Physician",
     "Availability": "AM"
   },
   {
     "DoctorName": "Dr.Apoorva Nikam",
-    "Id": 17,
+    "Id": 7,
     "Speciality": "Physiologist",
     "Availability": "AM"
   },
   {
     "DoctorName": "Dr.Janhavi Katkar",
-    "Id": 41,
+    "Id": 8,
     "Speciality": "Orthopediac",
     "Availability": "PM"
   },
   {
     "DoctorName": "Dr.Akshay Nikam",
-    "Id": 19,
+    "Id": 9,
     "Speciality": "Orthopediac",
     "Availability": "PM"
   },
   {
     "DoctorName": "Dr.Pratiksha Salian",
-    "Id": 35,
+    "Id": 10,
     "Speciality": "Physician",
     "Availability": "Both"
   }

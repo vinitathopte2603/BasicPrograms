@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Bridgelabz\\BasicPrograms\\programs\\DataStructures\\DataStructures\\DataStructures.csproj": {}
+    "D:\\bridgelabz\\programs\\DataStructures\\DataStructures\\DataStructures.csproj": {}
   },
   "projects": {
-    "F:\\Bridgelabz\\BasicPrograms\\programs\\DataStructures\\DataStructures\\DataStructures.csproj": {
+    "D:\\bridgelabz\\programs\\DataStructures\\DataStructures\\DataStructures.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Bridgelabz\\BasicPrograms\\programs\\DataStructures\\DataStructures\\DataStructures.csproj",
+        "projectUniqueName": "D:\\bridgelabz\\programs\\DataStructures\\DataStructures\\DataStructures.csproj",
         "projectName": "DataStructures",
-        "projectPath": "F:\\Bridgelabz\\BasicPrograms\\programs\\DataStructures\\DataStructures\\DataStructures.csproj",
-        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "F:\\Bridgelabz\\BasicPrograms\\programs\\DataStructures\\DataStructures\\obj\\",
+        "projectPath": "D:\\bridgelabz\\programs\\DataStructures\\DataStructures\\DataStructures.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "D:\\bridgelabz\\programs\\DataStructures\\DataStructures\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

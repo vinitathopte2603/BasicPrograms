@@ -1,11 +1,22 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------
+// <copyright file="UserInput.cs" Author="Vinita Thopte" company="Bridgelabz">
+//     Company copyright tag.
+// </copyright>
+//-----------------------------------------------------------------------
+namespace ObjectOrientedPrograms
+{
+    using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ObjectOrientedPrograms
-{
-   public class UserInput
+    /// <summary>
+    /// takes input from user to perform various operations
+    /// </summary>
+    public class UserInput
     {
+        /// <summary>
+        /// Inputs from user.
+        /// </summary>
         public static void InputFromUser()
         {
             StockAccount stockAccount = new StockAccount();
@@ -14,7 +25,7 @@ namespace ObjectOrientedPrograms
             {
                 while (flag)
                 {
-                    Console.WriteLine("\n 1 : Buy the Share \n 2 : Sell a Share \n 3 : View Existing Shares \n 4 : View Symobol Purchased \n 5 : Exit");
+                    Console.WriteLine("\n 1 : Buy the Share \n 2 : Sell a Share \n 3 : View Existing Shares \n 4 : View Symbol Purchased \n 5 : Exit");
                     Console.WriteLine("Enter your choice : ");
                     int input = Convert.ToInt32(Console.ReadLine());
                     switch (input)

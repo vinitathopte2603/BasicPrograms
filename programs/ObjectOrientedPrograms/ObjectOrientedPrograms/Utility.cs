@@ -29,7 +29,7 @@ namespace ObjectOrientedPrograms
             var jsonObjectArray = JsonConvert.DeserializeObject<InventoryStructure>(jsondata);
             string grain = jsonObjectArray.rice[2].name;
             Console.WriteLine(/*jsonObjectArray.Rice[2].weight*/grain);
-            double total = 0;
+            double total;
             for (int i = 0; i < 3; i++)
             {
                 total = jsonObjectArray.rice[i].pricePerkg * jsonObjectArray.rice[i].weight;
@@ -112,43 +112,51 @@ namespace ObjectOrientedPrograms
                 Console.Write("\n" + details.name + " : " + details.pricePerkg + " per/kg " + ", stock present in inventory : " + details.weight);
             }
         }
+
+        /// <summary>
+        /// input given to the address book
+        /// </summary>
         public static void AddressBookInput()
         {
             string path = @"D:\bridgelabz\programs\ObjectOrientedPrograms\ObjectOrientedPrograms\AddressBook.json";
             char answer;
             string jsonfiledata;
             List<AddressBookDetails> user = new List<AddressBookDetails>();
-             //// AddressBookDetails bookdetails = new AddressBookDetails();
             do
             {
                 Console.WriteLine("Enter your details : ");
                  AddressBookInputAndValidation userinput = new AddressBookInputAndValidation();
                 user.Add(userinput.InputAndValidation());
                 jsonfiledata = JsonConvert.SerializeObject(user);
-              ////  Console.WriteLine(jsonfiledata);
                 Console.WriteLine("Do you wan to continue ? ");
                 answer = Convert.ToChar(Console.ReadLine());
             }
             while (answer == 'y' || answer == 'Y');
             File.AppendAllText(path, jsonfiledata);
         }
+
+        /// <summary>
+        /// Displays the address book.
+        /// </summary>
         public static void DisplayAddressBook()
         {
             string path = @"D:\bridgelabz\programs\ObjectOrientedPrograms\ObjectOrientedPrograms\AddressBook.json";
             string jsondata = File.ReadAllText(path);
             var objectArray = JsonConvert.DeserializeObject<List<AddressBookDetails>>(jsondata);
             List<AddressBookDetails> list = objectArray;
-            foreach(AddressBookDetails details in list)
+            foreach (AddressBookDetails details in list)
             {
                 Console.WriteLine(" ");
                 Console.WriteLine(details.firstName + " " + details.lastName);
                 Console.WriteLine("Contact Number : " + details.contactNumber);
                 Console.WriteLine("Email address : " + details.emailAddress);
                 Console.WriteLine("Residential address : " + details.address);
-            }
-           
+            } 
         }
 
+        /// <summary>
+        /// Edits the information.
+        /// </summary>
         public static void EditInformation()
         {
             Console.WriteLine("Enter first name of the person whose data to be edited : ");
@@ -179,6 +187,7 @@ namespace ObjectOrientedPrograms
                         case 3:
                             Console.WriteLine("Enter new contact number : ");
                             long newContactNumber = Convert.ToInt64(Console.ReadLine());
+                            list[i].contactNumber = newContactNumber;
                             break;
                         case 4:
                             Console.WriteLine("Enter new email address : ");
@@ -194,29 +203,43 @@ namespace ObjectOrientedPrograms
                             Console.WriteLine("Enter valid choice");
                             break;
                     }
-
                 }
             }
+
             using (StreamWriter file = File.CreateText(@"D:\bridgelabz\programs\ObjectOrientedPrograms\ObjectOrientedPrograms\AddressBook.json"))
             {
                 JsonSerializer serializer = new JsonSerializer();
                 serializer.Serialize(file, list);
             }
         }
+
+        /// <summary>
+        /// Replaces the string with given input data input.
+        /// </summary>
+        /// <param name="message">The message.</param>
+        /// <param name="firstName">The first name.</param>
+        /// <param name="lastName">The last name.</param>
+        /// <param name="contactNumber">The contact number.</param>
+        /// <returns>returns the message string</returns>
         public static string ReplaceStringInputValidation(string message, string firstName, string lastName, long contactNumber)
         { 
-            string fName = Utility.ReplaceStringValidateName(firstName);
-            string fullName = fName + " " + Utility.ReplaceStringValidateName(lastName);
+            string frstName = Utility.ReplaceStringValidateName(firstName);
+            string fullName = frstName + " " + Utility.ReplaceStringValidateName(lastName);
             long contactNum = Utility.ReplaceStringValidateContactNumber(contactNumber);
             string date = DateTime.Today.ToString("dd/mm/yyyy");
-            message = message.Replace("<<name>>", fName);
+            message = message.Replace("<<name>>", frstName);
             message = message.Replace("<<fullName>>", fullName);
             message = message.Replace("xxxxxxxxxx", contactNum.ToString());
             message = message.Replace("xx/xx/xxxx", date);
             Console.WriteLine();
             return message;
-
         }
+
+        /// <summary>
+        /// validates the string input
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <returns>returns the valid name</returns>
         private static string ReplaceStringValidateName(string name)
         {
             string namePattern = @"^[A-Z][a-zA-Z]*$";
@@ -233,6 +256,12 @@ namespace ObjectOrientedPrograms
             while (!isFirstNameValid);
             return name;
         }
+
+        /// <summary>
+        /// validate contact number.
+        /// </summary>
+        /// <param name="contactNumber">The contact number.</param>
+        /// <returns>valid contact number</returns>
         private static long ReplaceStringValidateContactNumber(long contactNumber)
         {
             string phonepattern = @"^{1}[1-9]{1}[0-9]{9}$";
@@ -248,6 +277,5 @@ namespace ObjectOrientedPrograms
             while (!isPhoneNumberValid);
             return contactNumber;
         }
-
     }
 }

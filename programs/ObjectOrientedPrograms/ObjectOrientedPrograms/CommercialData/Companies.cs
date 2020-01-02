@@ -1,22 +1,57 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------
+// <copyright file="Companies.cs" Author="Vinita Thopte" company="Bridgelabz">
+//     Company copyright tag.
+// </copyright>
+//-----------------------------------------------------------------------
+namespace ObjectOrientedPrograms
+{
+    using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ObjectOrientedPrograms
-{
-   public class Companies
+    /// <summary>
+    /// properties of company
+    /// </summary>
+    public class Companies
     {
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
         public string Name { get; set; }
+
+        /// <summary>
+        /// Gets or sets the symbol.
+        /// </summary>
+        /// <value>
+        /// The symbol.
+        /// </value>
         public string Symbol { get; set; }
+
+        /// <summary>
+        /// Gets or sets the share.
+        /// </summary>
+        /// <value>
+        /// The share.
+        /// </value>
         public int Share { get; set; }
+
+        /// <summary>
+        /// Gets or sets the price.
+        /// </summary>
+        /// <value>
+        /// The price.
+        /// </value>
         public double Price { get; set; }
+
+        /// <summary>
+        /// Gets or sets the purchase date.
+        /// </summary>
+        /// <value>
+        /// The purchase date.
+        /// </value>
         public string PurchaseDate { get; set; }
-        ////public Companies(string Name, string Symbol, int Share, double Price)
-        ////{
-        ////    this.Name = Name;
-        ////    this.Symbol = Symbol;
-        ////    this.Share = Share;
-        ////    this.Price = Price;
-        ////}
     }
 }

@@ -1,11 +1,22 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------
+// <copyright file="ReplaceStringUsingRegex.cs" Author="Vinita Thopte" company="Bridgelabz">
+//     Company copyright tag.
+// </copyright>
+//-----------------------------------------------------------------------
+namespace ObjectOrientedPrograms
+{
+    using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ObjectOrientedPrograms
-{
-    class ReplaceStringUsingRegex
+    /// <summary>
+    /// class to perform validation using regex and replace string
+    /// </summary>
+    public class ReplaceStringUsingRegex
     {
+        /// <summary>
+        /// input from user
+        /// </summary>
         public static void UserDetailsInput()
         {
             string message = " Hello <<name>>, we have your full name as <<fullName>> in our system.\n" +

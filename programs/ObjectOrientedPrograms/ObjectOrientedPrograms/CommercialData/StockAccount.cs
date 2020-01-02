@@ -1,14 +1,33 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------
+// <copyright file="StockAccount.cs" Author="Vinita Thopte" company="Bridgelabz">
+//     Company copyright tag.
+// </copyright>
+//-----------------------------------------------------------------------
+namespace ObjectOrientedPrograms
+{
+    using System;
 using System.Collections.Generic;
-using System.Text;
 using System.IO;
 using Newtonsoft.Json;
 
-namespace ObjectOrientedPrograms
-{
-   public class StockAccount:InterfaceStockAccount
+    /// <summary>
+    /// class implementing the methods from given interface
+    /// </summary>
+    /// <seealso cref="ObjectOrientedPrograms.InterfaceStockAccount" />
+    public class StockAccount : InterfaceStockAccount
     {
-       static string path = @"D:\bridgelabz\programs\ObjectOrientedPrograms\ObjectOrientedPrograms\Company.json";
+        /// <summary>
+        /// The path of file
+        /// </summary>
+       private static string path = @"D:\bridgelabz\programs\ObjectOrientedPrograms\ObjectOrientedPrograms\Company.json";
+
+        /// <summary>
+        /// Buys the specified share.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="symbol">The symbol.</param>
+        /// <param name="share">The share.</param>
+        /// <param name="price">The price.</param>
         public void Buy(string name, string symbol, int share, int price)
         {
             if (File.Exists(path))
@@ -25,11 +44,13 @@ namespace ObjectOrientedPrograms
                 list.Add(companies);
                 string jsonContent = JsonConvert.SerializeObject(list);
                 File.WriteAllText(path, jsonContent);
-
             }   
         }
 
-       public void PrintReport()
+        /// <summary>
+        /// Prints the report.
+        /// </summary>
+        public void PrintReport()
         {
             string jsondata = File.ReadAllText(path);
             var objectArray = JsonConvert.DeserializeObject<List<Companies>>(jsondata);
@@ -44,13 +65,18 @@ namespace ObjectOrientedPrograms
                 Console.WriteLine("Purchased time : " + details.PurchaseDate);
             }
         }
+
+        /// <summary>
+        /// Sells the specified share.
+        /// </summary>
+        /// <param name="symbol">The symbol.</param>
         public void Sell(string symbol)
         {
             string jsondata = File.ReadAllText(path);
             var objectArray = JsonConvert.DeserializeObject<List<Companies>>(jsondata);
             List<Companies> list = objectArray;
             int count = 0;
-           foreach(Companies details in  list)
+           foreach (Companies details in list)
             { 
                 count++;
                 if (details.Symbol.Equals(symbol))
@@ -63,19 +89,23 @@ namespace ObjectOrientedPrograms
                 }  
             }
         }
-       public void PrintSymbols()
+
+        /// <summary>
+        /// Prints the symbols.
+        /// </summary>
+        public void PrintSymbols()
         {
             string jsondata = File.ReadAllText(path);
             var objectArray = JsonConvert.DeserializeObject<List<Companies>>(jsondata);
             List<Companies> list = objectArray;
             Stack stack = new Stack();
             Companies companies = new Companies();
-           foreach(Companies companies1 in list)
+           foreach (Companies companies1 in list)
             { 
                 stack.Push(companies1.Symbol);
             }
+
             stack.Display();
         }
-
     }
 }

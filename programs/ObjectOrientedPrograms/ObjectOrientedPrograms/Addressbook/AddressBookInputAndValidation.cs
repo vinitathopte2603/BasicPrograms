@@ -1,16 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-
+﻿//-----------------------------------------------------------------------
+// <copyright file="AddressBookInputAndValidation.cs" Author="Vinita Thopte" company="Bridgelabz">
+//     Company copyright tag.
+// </copyright>
+//-----------------------------------------------------------------------
 namespace ObjectOrientedPrograms
 {
-   public class AddressBookInputAndValidation
+    using System;
+    using System.Text.RegularExpressions;
+
+    /// <summary>
+    /// validations of input from user
+    /// </summary>
+    public class AddressBookInputAndValidation
     {
+        /// <summary>
+        /// validates the input
+        /// </summary>
+        /// <returns>returns the values</returns>
         public AddressBookDetails InputAndValidation()
         {
             AddressBookDetails details = new AddressBookDetails();
             string firstName = FirstNameInputAndValidation();
-            string lastName = LasttNameInputAndValidation();
+            string lastName = LastNameInputAndValidation();
             long contactNumber = PhoneNumberInputAndValidation();
             string email = EmailAddressInputAndValidation();
             Console.WriteLine("Permanent address : ");
@@ -23,6 +34,11 @@ namespace ObjectOrientedPrograms
 
             return details;
         }
+
+        /// <summary>
+        /// contact number input from user and validation of given input
+        /// </summary>
+        /// <returns>returns the valid contact number</returns>
         private static long PhoneNumberInputAndValidation()
         {
             string phonepattern = @"^{1}[1-9]{1}[0-9]{9}$";
@@ -41,6 +57,11 @@ namespace ObjectOrientedPrograms
             while (!isPhoneNumberValid);
             return contactNumber;
         }
+
+        /// <summary>
+        /// email address input from user and validation of the same
+        /// </summary>
+        /// <returns>returns valid email address</returns>
         private static string EmailAddressInputAndValidation()
         {
             string emailpattern = "^[a-zA-Z0-9_+&*-]+(?:\\." +
@@ -62,6 +83,11 @@ namespace ObjectOrientedPrograms
             while (!isEmailAddressValid);
             return emailAddress;
         }
+
+        /// <summary>
+        /// name input from user and validation of the same
+        /// </summary>
+        /// <returns>returns valid first name</returns>
         private static string FirstNameInputAndValidation()
         {
             string namePattern = @"^[A-Z][a-zA-Z]*$";
@@ -80,7 +106,12 @@ namespace ObjectOrientedPrograms
             while (!isFirstNameValid);
             return firstName;
         }
-        private static string LasttNameInputAndValidation()
+
+        /// <summary>
+        /// last name input from user and validation of the same
+        /// </summary>
+        /// <returns>returns valid name</returns>
+        private static string LastNameInputAndValidation()
         {
             string namePattern = @"^[A-Z][a-zA-Z]*$";
             bool isLastNameValid;

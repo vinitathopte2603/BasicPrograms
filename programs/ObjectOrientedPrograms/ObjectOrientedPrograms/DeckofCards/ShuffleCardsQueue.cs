@@ -1,15 +1,26 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------
+// <copyright file="ShuffleCardsQueue.cs" Author="Vinita Thopte" company="Bridgelabz">
+//     Company copyright tag.
+// </copyright>
+//-----------------------------------------------------------------------
+namespace ObjectOrientedPrograms
+{
+    using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ObjectOrientedPrograms
-{
-    class ShuffleCardsQueue
+    /// <summary>
+    /// shuffles the cards and distributed using queue
+    /// </summary>
+   public class ShuffleCardsQueue
     {
+        /// <summary>
+        /// Plays the game.
+        /// </summary>
         public static void PlayGame()
         {
             string[] suit = { "D", "C", "H", "S" };
-            string[] rank = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "jack", "Queen", "King", "Ace" };
+            string[] rank = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace" };
             string[] cards = new string[53];
             int i = 0;
             for (int j = 0; j < suit.Length; j++)
@@ -21,23 +32,16 @@ namespace ObjectOrientedPrograms
                 }
             }
 
-            ShuffleCardsQueue.CardsQueue(cards);
+            CardsQueue(cards);
         }
-        private static string[] Shuffle(string[] cards)
-        {
-            Random r = new Random();
-            for (int i = 0; i < 53; i++)
-            {
-                int rand = r.Next(52 - i);
-                string temp = cards[i];
-                cards[i] = cards[rand];
-                cards[rand] = temp;
-            }
-            return cards;
-        }
+
+        /// <summary>
+        /// inserts cards into the queue
+        /// </summary>
+        /// <param name="deckCards">The deck of cards.</param>
         public static void CardsQueue(string[] deckCards)
         {
-            string[] cardsAfterShuffling = ShuffleCardsQueue.Shuffle(deckCards);
+            string[] cardsAfterShuffling = Shuffle(deckCards);
             Queue queue = new Queue();
             Queue queue1 = new Queue();
             Queue queue2 = new Queue();
@@ -47,15 +51,17 @@ namespace ObjectOrientedPrograms
             {
                 queue.Insert(cardsAfterShuffling[i]);
             }
+
             queue.Display();
+            Console.WriteLine();
             int count1 = 0;
             while (count1 != 10)
             {
-                queue1.Insert(queue.front.data);
+                queue1.Insert(queue.front.nextnode.data);
                 count1++;
                 queue.Remove();
-                
             }
+
             Console.WriteLine();
             queue1.Display();
             Console.WriteLine("\nSorted cards of player 1 : ");
@@ -70,6 +76,7 @@ namespace ObjectOrientedPrograms
                 count2++;
                 queue.Remove();
             }
+
             Console.WriteLine();
             queue2.Display();
             Console.WriteLine("\nSorted cards of player 2 : ");
@@ -84,6 +91,7 @@ namespace ObjectOrientedPrograms
                 count3++;
                 queue.Remove();
             }
+
             Console.WriteLine();
             queue3.Display();
             Console.WriteLine("\nSorted cards of player 3 : ");
@@ -98,12 +106,32 @@ namespace ObjectOrientedPrograms
                 count4++;
                 queue.Remove();
             }
+
             Console.WriteLine();
             queue4.Display();
             Console.WriteLine("\nSorted cards of player 4 : ");
             queue4.Sort(queue4);
             queue4.Display();
             Console.WriteLine();
+        }
+
+        /// <summary>
+        /// Shuffles the cards.
+        /// </summary>
+        /// <param name="cards">The cards.</param>
+        /// <returns>array of shuffled cards</returns>
+        private static string[] Shuffle(string[] cards)
+        {
+            Random r = new Random();
+            for (int i = 0; i < 53; i++)
+            {
+                int rand = r.Next(52 - i);
+                string temp = cards[i];
+                cards[i] = cards[rand];
+                cards[rand] = temp;
+            }
+
+            return cards;
         }
     }
 }

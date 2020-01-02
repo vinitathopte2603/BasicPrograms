@@ -1,12 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Newtonsoft.Json;
-
+﻿//-----------------------------------------------------------------------
+// <copyright file="AddressBook.cs" Author="Vinita Thopte" company="Bridgelabz">
+//     Company copyright tag.
+// </copyright>
+//-----------------------------------------------------------------------
 namespace ObjectOrientedPrograms
 {
-    class AddressBook
+    using System;
+
+    /// <summary>
+    /// Perform operations on address book
+    /// </summary>
+   public class AddressBook
     {
+        /// <summary>
+        /// call to methods performing operations on address book according to choice of the user.
+        /// </summary>
         public static void AddressBookCall()
         {
             bool flag = true;
@@ -18,7 +26,7 @@ namespace ObjectOrientedPrograms
                 switch (choice)
                 {
                     case 1:
-                        Utility.AddressBookInput(); ;
+                        Utility.AddressBookInput();
                         break;
                     case 2:
                         Utility.DisplayAddressBook();
@@ -29,14 +37,9 @@ namespace ObjectOrientedPrograms
                     case 4:
                         flag = false;
                         break;
-
                 }
-
             } 
             while (flag);
-
-
-
         }
     }
 }

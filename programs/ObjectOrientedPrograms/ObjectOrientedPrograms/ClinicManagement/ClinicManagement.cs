@@ -1,11 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿//-----------------------------------------------------------------------
+// <copyright file="ClinicManagement.cs" Author="Vinita Thopte" company="Bridgelabz">
+//     Company copyright tag.
+// </copyright>
+//-----------------------------------------------------------------------
 namespace ObjectOrientedPrograms
 {
-    class ClinicManagement
+    using System;
+
+    /// <summary>
+    /// class to perform clinic management
+    /// </summary>
+   public class ClinicManagement
     {
+        /// <summary>
+        /// takes user input
+        /// </summary>
         public static void Appointment()
         {
             bool flag = true;
@@ -30,7 +39,6 @@ namespace ObjectOrientedPrograms
                         case 4:
                             flag = false;
                             break;
-
                     }
                 }
             }

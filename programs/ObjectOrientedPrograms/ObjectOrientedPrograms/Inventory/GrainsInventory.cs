@@ -12,8 +12,11 @@ using System.Text;
     /// <summary>
     /// Call to give call to inventory management method of grains
     /// </summary>
-    class GrainsInventory
+   public class GrainsInventory
     {
+        /// <summary>
+        /// calls the mentioned function
+        /// </summary>
         public static void GrainInventoryCall()
         {
             Utility.GrainsInventoryMgnt();

@@ -1,11 +1,22 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------
+// <copyright file="CommercialUtility.cs" Author="Vinita Thopte" company="Bridgelabz">
+//     Company copyright tag.
+// </copyright>
+//-----------------------------------------------------------------------
+namespace ObjectOrientedPrograms
+{
+    using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ObjectOrientedPrograms
-{
-    class CommercialUtility
+    /// <summary>
+    /// perform transactions
+    /// </summary>
+   public class CommercialUtility
     {
+        /// <summary>
+        /// Buys the stake.
+        /// </summary>
         public static void BuyStake()
         {
             StockAccount stockAccount = new StockAccount();
@@ -19,6 +30,10 @@ namespace ObjectOrientedPrograms
             int price = Convert.ToInt32(Console.ReadLine());
             stockAccount.Buy(name, symbol, shares, price);
         }
+
+        /// <summary>
+        /// Sells the stake.
+        /// </summary>
         public static void SellStake()
         {
             StockAccount stockAccount = new StockAccount();
@@ -26,11 +41,19 @@ namespace ObjectOrientedPrograms
             string symbol = Console.ReadLine();
             stockAccount.Sell(symbol);
         }
+
+        /// <summary>
+        /// Prints the report.
+        /// </summary>
         public static void PrintReport()
         {
             StockAccount stockAccount = new StockAccount();
             stockAccount.PrintReport();
         }
+
+        /// <summary>
+        /// Prints the symbols.
+        /// </summary>
         public static void PrintSymbol()
         {
             StockAccount stockAccount = new StockAccount();

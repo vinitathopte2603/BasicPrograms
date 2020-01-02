@@ -1,22 +1,56 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿//-----------------------------------------------------------------------
+// <copyright file="Linkedlist.cs" Author="Vinita Thopte" company="Bridgelabz">
+//     Company copyright tag.
+// </copyright>
+//-----------------------------------------------------------------------
 
 namespace ObjectOrientedPrograms
 {
-   public class Node
+    using System;
+using System.Collections.Generic;
+using System.Text;
+
+    /// <summary>
+    /// user defined data type node
+    /// </summary>
+    public class Node
     {
-       public object data;
-       public Node nextnode;
+        /// <summary>
+        /// The data
+        /// </summary>
+        public object data;
+
+        /// <summary>
+        /// The next node
+        /// </summary>
+        public Node nextnode;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Node"/> class.
+        /// </summary>
+        /// <param name="d">The data.</param>
         public Node(object d)
         {
-            data = d;
-            nextnode = null;
+            this.data = d;
+            this.nextnode = null;
         }
     }
-   public class Linkedlist<T>
+
+    /// <summary>
+    /// perform various operations on created linkedlist
+    /// </summary>
+    /// <typeparam name="T">data type of the list</typeparam>
+    public class Linkedlist<T>
     {
-       public Node head;
+        /// <summary>
+        /// The head
+        /// </summary>
+        public Node head;
+
+        /// <summary>
+        /// Inserts the specified new data.
+        /// </summary>
+        /// <param name="newdata">The new data.</param>
         public void Insert(object newdata)
         {
             Node newnode = new Node(newdata);
@@ -34,6 +68,9 @@ namespace ObjectOrientedPrograms
             }
         }
 
+        /// <summary>
+        /// Deletes the last node.
+        /// </summary>
         public void DeleteLast()
         {
             Node temp = head;
@@ -41,9 +78,13 @@ namespace ObjectOrientedPrograms
             {
                 temp = temp.nextnode;
             }
+
             temp.nextnode = null;
         }
 
+        /// <summary>
+        /// Deletes the first node.
+        /// </summary>
         public void DeleteFirst()
         {
             if (head == null)
@@ -56,6 +97,10 @@ namespace ObjectOrientedPrograms
             }
         }
 
+        /// <summary>
+        /// Deletes the node at given position.
+        /// </summary>
+        /// <param name="pos">The position.</param>
         public void DeleteAtPosition(int pos)
         {
             Node temp1 = head;
@@ -79,10 +124,16 @@ namespace ObjectOrientedPrograms
                 {
                     temp1 = temp1.nextnode;
                 }
+
                 temp2 = temp1.nextnode;
                 temp1.nextnode = temp2.nextnode;
             }
         }
+
+        /// <summary>
+        /// Counts the elements in linked list.
+        /// </summary>
+        /// <returns>number of elements in the list</returns>
         public int Count()
         {
             Node temp = head;
@@ -92,8 +143,13 @@ namespace ObjectOrientedPrograms
                 cnt++;
                 temp = temp.nextnode;
             }
+
             return cnt;
         }
+
+        /// <summary>
+        /// Displays the elements in list.
+        /// </summary>
         public void Display()
         {
             Node temp = head;

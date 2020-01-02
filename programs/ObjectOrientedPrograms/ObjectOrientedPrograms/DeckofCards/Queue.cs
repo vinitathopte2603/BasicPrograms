@@ -1,9 +1,14 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------
+// <copyright file="Queue.cs" Author="Vinita Thopte" company="Bridgelabz">
+//     Company copyright tag.
+// </copyright>
+//-----------------------------------------------------------------------
+namespace ObjectOrientedPrograms
+{
+    using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ObjectOrientedPrograms
-{
     /// <summary>
     /// class to create node
     /// </summary>
@@ -15,7 +20,7 @@ namespace ObjectOrientedPrograms
         public string data;
 
         /// <summary>
-        /// The nextnode
+        /// The next node
         /// </summary>
         public QNode nextnode;
 
@@ -29,10 +34,26 @@ namespace ObjectOrientedPrograms
             nextnode = null;
         }
     }
-    class Queue
+
+    /// <summary>
+    /// class to perform operations on generated queue
+    /// </summary>
+   public class Queue
     {
+        /// <summary>
+        /// The front of queue
+        /// </summary>
         public QNode front;
-        QNode rear;
+
+        /// <summary>
+        /// The rear of queue
+        /// </summary>
+        public QNode rear;
+
+        /// <summary>
+        /// Inserts the specified new data.
+        /// </summary>
+        /// <param name="newdata">The new data.</param>
         public void Insert(string newdata)
         {
             QNode newnode = new QNode(newdata);
@@ -63,6 +84,10 @@ namespace ObjectOrientedPrograms
             }
 
         }
+
+        /// <summary>
+        /// Displays the queue
+        /// </summary>
         public void Display()
         {
             QNode temp = front;
@@ -73,6 +98,10 @@ namespace ObjectOrientedPrograms
             }
         }
 
+        /// <summary>
+        /// Counts the elements
+        /// </summary>
+        /// <returns>the number of elements</returns>
         public int Count()
         {
             QNode temp = front;
@@ -82,14 +111,17 @@ namespace ObjectOrientedPrograms
                 count++;
                 temp = temp.nextnode;
             }
+
             return count;
         }
+
+        /// <summary>
+        /// Sorts the specified queue.
+        /// </summary>
+        /// <param name="q">The queue.</param>
         public void Sort(Queue q)
         {
-            QNode temp = q.front;
-            QNode current = temp.nextnode;
-            
-
+            QNode current = q.front;
             while (current != null)
             {
                 QNode next = current.nextnode;
@@ -101,8 +133,10 @@ namespace ObjectOrientedPrograms
                         next.data = current.data;
                         current.data = tempstr;
                     }
+
                     next = next.nextnode;
                 }
+
                 current = current.nextnode;
             }
         }
