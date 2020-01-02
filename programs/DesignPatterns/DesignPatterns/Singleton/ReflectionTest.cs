@@ -9,7 +9,7 @@ namespace DesignPatterns
     {
         public static void TestReflection()
         {
-            Type myType = typeof(UsingReflection);
+           // Type myType = typeof(UsingReflection);
             
         }
     }

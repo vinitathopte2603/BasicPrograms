@@ -7,19 +7,27 @@ namespace DesignPatterns
         static void Main(string[] args)
         {
             bool flag = true;
+
             try
             {
-                Console.WriteLine("\n 1 : Singleton creational pattern \n 2 : ");
-                Console.WriteLine("Enter your choice  : ");
-                int choice = Convert.ToInt32(Console.ReadLine());
-                switch(choice)
+                while (flag)
                 {
-                    case 1:
-                        break;
-                    case 2:
-                        flag = false;
-                        break;
+                    Console.WriteLine("\n 1 : Singleton creational pattern \n 2 : Factory creational pattern \n 3 : Exit");
+                    Console.WriteLine("Enter your choice  : ");
+                    int choice = Convert.ToInt32(Console.ReadLine());
+                    switch (choice)
+                    {
+                        case 1:
+                            SingletonDesignPattern.SingletonCreationalDesignPattern();
+                            break;
+                        case 2:
+                            FactoryUserInput.FactoryInput();
+                            break;
+                        case 3:
+                            flag = false;
+                            break;
 
+                    }
                 }
             }
             catch (Exception e)
