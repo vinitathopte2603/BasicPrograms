@@ -12,7 +12,7 @@ namespace DesignPatterns
             {
                 while (flag)
                 {
-                    Console.WriteLine("\n 1 : Singleton creational pattern \n 2 : Factory creational pattern \n 3 : Exit");
+                    Console.WriteLine("\n 1 : Singleton creational pattern \n 2 : Factory creational pattern \n 3 : Prototype design pattern \n 4 : Adapter design pattern \n 5 : Exit");
                     Console.WriteLine("Enter your choice  : ");
                     int choice = Convert.ToInt32(Console.ReadLine());
                     switch (choice)
@@ -24,6 +24,12 @@ namespace DesignPatterns
                             FactoryUserInput.FactoryInput();
                             break;
                         case 3:
+                            PrototypePattern.PrototypePatternTest();
+                            break;
+                        case 4:
+                            AdapterPatternTest.TestClassAdapter();
+                            break;
+                        case 5:
                             flag = false;
                             break;
 

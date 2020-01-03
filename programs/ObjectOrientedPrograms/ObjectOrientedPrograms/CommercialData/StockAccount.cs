@@ -52,17 +52,24 @@ using Newtonsoft.Json;
         /// </summary>
         public void PrintReport()
         {
-            string jsondata = File.ReadAllText(path);
-            var objectArray = JsonConvert.DeserializeObject<List<Companies>>(jsondata);
-            List<Companies> list = objectArray;
-            foreach (Companies details in list)
+            try
             {
-                Console.WriteLine(" ");
-                Console.WriteLine("Name of company : " + details.Name);
-                Console.WriteLine("Symbol : " + details.Symbol);
-                Console.WriteLine("Number of shares : " + details.Share);
-                Console.WriteLine("Price of the shares : " + details.Price);
-                Console.WriteLine("Purchased time : " + details.PurchaseDate);
+                string jsondata = File.ReadAllText(path);
+                var objectArray = JsonConvert.DeserializeObject<List<Companies>>(jsondata);
+                List<Companies> list = objectArray;
+                foreach (Companies details in list)
+                {
+                    Console.WriteLine(" ");
+                    Console.WriteLine("Name of company : " + details.Name);
+                    Console.WriteLine("Symbol : " + details.Symbol);
+                    Console.WriteLine("Number of shares : " + details.Share);
+                    Console.WriteLine("Price of the shares : " + details.Price);
+                    Console.WriteLine("Purchased time : " + details.PurchaseDate);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
         }
 
@@ -72,21 +79,28 @@ using Newtonsoft.Json;
         /// <param name="symbol">The symbol.</param>
         public void Sell(string symbol)
         {
-            string jsondata = File.ReadAllText(path);
-            var objectArray = JsonConvert.DeserializeObject<List<Companies>>(jsondata);
-            List<Companies> list = objectArray;
-            int count = 0;
-           foreach (Companies details in list)
-            { 
-                count++;
-                if (details.Symbol.Equals(symbol))
+            try
+            {
+                string jsondata = File.ReadAllText(path);
+                var objectArray = JsonConvert.DeserializeObject<List<Companies>>(jsondata);
+                List<Companies> list = objectArray;
+                int count = 0;
+                foreach (Companies details in list)
                 {
-                    list.Remove(details);
-                    Console.WriteLine("Shares sold");
-                    string data = JsonConvert.SerializeObject(list);
-                    File.WriteAllText(path, data);
-                    break;
-                }  
+                    count++;
+                    if (details.Symbol.Equals(symbol))
+                    {
+                        list.Remove(details);
+                        Console.WriteLine("Shares sold");
+                        string data = JsonConvert.SerializeObject(list);
+                        File.WriteAllText(path, data);
+                        break;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
         }
 
@@ -95,17 +109,23 @@ using Newtonsoft.Json;
         /// </summary>
         public void PrintSymbols()
         {
-            string jsondata = File.ReadAllText(path);
-            var objectArray = JsonConvert.DeserializeObject<List<Companies>>(jsondata);
-            List<Companies> list = objectArray;
-            Stack stack = new Stack();
-            Companies companies = new Companies();
-           foreach (Companies companies1 in list)
-            { 
-                stack.Push(companies1.Symbol);
-            }
+            try
+            {
+                string jsondata = File.ReadAllText(path);
+                var objectArray = JsonConvert.DeserializeObject<List<Companies>>(jsondata);
+                List<Companies> list = objectArray;
+                Stack stack = new Stack();
+                foreach (Companies companies1 in list)
+                {
+                    stack.Push(companies1.Symbol);
+                }
 
-            stack.Display();
+                stack.Display();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
     }
 }

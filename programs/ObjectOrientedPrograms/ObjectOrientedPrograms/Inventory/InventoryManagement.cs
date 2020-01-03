@@ -27,58 +27,65 @@ namespace ObjectOrientedPrograms
         /// </summary>
         public static void InventoryCall()
         {
-            var jsonObjectArray = JsonConvert.DeserializeObject<InventoryStructure>(jsondata);
-            Utility ut = new Utility();
-            ut.DisplayInventory();
-            Console.WriteLine("\nEnter the grain you want to purchase ");
-            string name = Console.ReadLine();
-            string grainName = name.ToLower();
-            int count = 0;
-            for (int i = 0; i < 3; i++)
+            try
             {
-                if (jsonObjectArray.rice[i].name != grainName && jsonObjectArray.pulses[i].name != grainName && jsonObjectArray.wheat[i].name != grainName)
+                var jsonObjectArray = JsonConvert.DeserializeObject<InventoryStructure>(jsondata);
+                Utility ut = new Utility();
+                ut.DisplayInventory();
+                Console.WriteLine("\nEnter the grain you want to purchase ");
+                string name = Console.ReadLine();
+                string grainName = name.ToLower();
+                int count = 0;
+                for (int i = 0; i < 3; i++)
                 {
-                    count++;
-                }
-            }
-
-            if (count == 3)
-            {
-                Console.WriteLine("grain not available in inventory");
-            }
-            else
-            {
-                Console.WriteLine("\nEnter amount of grain you want to purchase");
-            }
-
-            double quantity = Convert.ToDouble(Console.ReadLine());
-            double newWeight = ut.InventoryManagementCustomer(grainName, quantity);
-            Console.WriteLine(newWeight);
-            for (int i = 0; i < jsondata.Length; i++)
-            {
-                if (jsonObjectArray.rice[i].name == grainName)
-                {
-                    jsonObjectArray.rice[i].weight = newWeight;
-                    break;
+                    if (jsonObjectArray.rice[i].name != grainName && jsonObjectArray.pulses[i].name != grainName && jsonObjectArray.wheat[i].name != grainName)
+                    {
+                        count++;
+                    }
                 }
 
-                if (jsonObjectArray.wheat[i].name == grainName)
+                if (count == 3)
                 {
-                    jsonObjectArray.wheat[i].weight = newWeight;
-                    break;
+                    Console.WriteLine("grain not available in inventory");
+                }
+                else
+                {
+                    Console.WriteLine("\nEnter amount of grain you want to purchase");
                 }
 
-                if (jsonObjectArray.pulses[i].name == grainName)
+                double quantity = Convert.ToDouble(Console.ReadLine());
+                double newWeight = ut.InventoryManagementCustomer(grainName, quantity);
+                Console.WriteLine(newWeight);
+                for (int i = 0; i < jsondata.Length; i++)
                 {
-                    jsonObjectArray.pulses[i].weight = newWeight;
-                    break;
+                    if (jsonObjectArray.rice[i].name == grainName)
+                    {
+                        jsonObjectArray.rice[i].weight = newWeight;
+                        break;
+                    }
+
+                    if (jsonObjectArray.wheat[i].name == grainName)
+                    {
+                        jsonObjectArray.wheat[i].weight = newWeight;
+                        break;
+                    }
+
+                    if (jsonObjectArray.pulses[i].name == grainName)
+                    {
+                        jsonObjectArray.pulses[i].weight = newWeight;
+                        break;
+                    }
+                }
+
+                using (StreamWriter file = File.CreateText(@"D:\bridgelabz\programs\ObjectOrientedPrograms\ObjectOrientedPrograms\Grains.json"))
+                {
+                    JsonSerializer serializer = new JsonSerializer();
+                    serializer.Serialize(file, jsonObjectArray);
                 }
             }
-         
-            using (StreamWriter file = File.CreateText(@"D:\bridgelabz\programs\ObjectOrientedPrograms\ObjectOrientedPrograms\Grains.json"))
+            catch (Exception e)
             {
-                JsonSerializer serializer = new JsonSerializer();
-                serializer.Serialize(file, jsonObjectArray);
+                Console.WriteLine(e.Message);
             }
         }
     }

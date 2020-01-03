@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Reflection;
 
 namespace DesignPatterns
 {
-   public sealed class ReflectionTest
+    class Socket
     {
-        public static void TestReflection()
+        public Volts GetVolts()
         {
-            
+            return new Volts(120);
         }
     }
 }

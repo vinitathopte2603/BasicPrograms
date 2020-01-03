@@ -57,6 +57,7 @@ using System.Text;
                 i++;
                 if (j == noOfPlayers)
                 {
+
                     k++;
                 }
             }

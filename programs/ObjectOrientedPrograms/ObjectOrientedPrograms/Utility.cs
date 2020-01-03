@@ -26,14 +26,21 @@ namespace ObjectOrientedPrograms
         /// </summary>
         public static void GrainsInventoryMgnt()
         {
-            var jsonObjectArray = JsonConvert.DeserializeObject<InventoryStructure>(jsondata);
-            string grain = jsonObjectArray.rice[2].name;
-            Console.WriteLine(/*jsonObjectArray.Rice[2].weight*/grain);
-            double total;
-            for (int i = 0; i < 3; i++)
+            try
             {
-                total = jsonObjectArray.rice[i].pricePerkg * jsonObjectArray.rice[i].weight;
-                Console.WriteLine("Cost of total available " + jsonObjectArray.rice[i].name + " is :" + total);
+                var jsonObjectArray = JsonConvert.DeserializeObject<InventoryStructure>(jsondata);
+                string grain = jsonObjectArray.rice[2].name;
+                Console.WriteLine(/*jsonObjectArray.Rice[2].weight*/grain);
+                double total;
+                for (int i = 0; i < 3; i++)
+                {
+                    total = jsonObjectArray.rice[i].pricePerkg * jsonObjectArray.rice[i].weight;
+                    Console.WriteLine("Cost of total available " + jsonObjectArray.rice[i].name + " is :" + total);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
         }
 
@@ -90,26 +97,33 @@ namespace ObjectOrientedPrograms
         /// </summary>
         public void DisplayInventory()
         {
-            var jsonObjectsArray = JsonConvert.DeserializeObject<InventoryStructure>(jsondata);
-            Console.WriteLine("Total stock present in the inventory");
-            List<Properties> rice = jsonObjectsArray.rice;
-            foreach (Properties details in rice)
+            try
             {
-                Console.Write("\n" + details.name + " : " + details.pricePerkg + " per/kg " + ", stock present in inventory : " + details.weight);
-            }
+                var jsonObjectsArray = JsonConvert.DeserializeObject<InventoryStructure>(jsondata);
+                Console.WriteLine("Total stock present in the inventory");
+                List<Properties> rice = jsonObjectsArray.rice;
+                foreach (Properties details in rice)
+                {
+                    Console.Write("\n" + details.name + " : " + details.pricePerkg + " per/kg " + ", stock present in inventory : " + details.weight);
+                }
 
-            Console.WriteLine();
-            List<Properties> wheat = jsonObjectsArray.wheat;
-            foreach (Properties details in wheat)
-            {
-                Console.Write("\n" + details.name + " : " + details.pricePerkg + " per/kg " + ", stock present in inventory : " + details.weight);
-            }
+                Console.WriteLine();
+                List<Properties> wheat = jsonObjectsArray.wheat;
+                foreach (Properties details in wheat)
+                {
+                    Console.Write("\n" + details.name + " : " + details.pricePerkg + " per/kg " + ", stock present in inventory : " + details.weight);
+                }
 
-            Console.WriteLine();
-            List<Properties> pulses = jsonObjectsArray.pulses;
-            foreach (Properties details in pulses)
+                Console.WriteLine();
+                List<Properties> pulses = jsonObjectsArray.pulses;
+                foreach (Properties details in pulses)
+                {
+                    Console.Write("\n" + details.name + " : " + details.pricePerkg + " per/kg " + ", stock present in inventory : " + details.weight);
+                }
+            }
+            catch (Exception e)
             {
-                Console.Write("\n" + details.name + " : " + details.pricePerkg + " per/kg " + ", stock present in inventory : " + details.weight);
+                Console.WriteLine(e.Message);
             }
         }
 
@@ -118,21 +132,28 @@ namespace ObjectOrientedPrograms
         /// </summary>
         public static void AddressBookInput()
         {
-            string path = @"D:\bridgelabz\programs\ObjectOrientedPrograms\ObjectOrientedPrograms\AddressBook.json";
-            char answer;
-            string jsonfiledata;
-            List<AddressBookDetails> user = new List<AddressBookDetails>();
-            do
+            try
             {
-                Console.WriteLine("Enter your details : ");
-                 AddressBookInputAndValidation userinput = new AddressBookInputAndValidation();
-                user.Add(userinput.InputAndValidation());
-                jsonfiledata = JsonConvert.SerializeObject(user);
-                Console.WriteLine("Do you wan to continue ? ");
-                answer = Convert.ToChar(Console.ReadLine());
+                string path = @"D:\bridgelabz\programs\ObjectOrientedPrograms\ObjectOrientedPrograms\AddressBook.json";
+                char answer;
+                string jsonfiledata;
+                List<AddressBookDetails> user = new List<AddressBookDetails>();
+                do
+                {
+                    Console.WriteLine("Enter your details : ");
+                    AddressBookInputAndValidation userinput = new AddressBookInputAndValidation();
+                    user.Add(userinput.InputAndValidation());
+                    jsonfiledata = JsonConvert.SerializeObject(user);
+                    Console.WriteLine("Do you wan to continue ? ");
+                    answer = Convert.ToChar(Console.ReadLine());
+                }
+                while (answer == 'y' || answer == 'Y');
+                File.AppendAllText(path, jsonfiledata);
             }
-            while (answer == 'y' || answer == 'Y');
-            File.AppendAllText(path, jsonfiledata);
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
 
         /// <summary>
@@ -140,18 +161,25 @@ namespace ObjectOrientedPrograms
         /// </summary>
         public static void DisplayAddressBook()
         {
-            string path = @"D:\bridgelabz\programs\ObjectOrientedPrograms\ObjectOrientedPrograms\AddressBook.json";
-            string jsondata = File.ReadAllText(path);
-            var objectArray = JsonConvert.DeserializeObject<List<AddressBookDetails>>(jsondata);
-            List<AddressBookDetails> list = objectArray;
-            foreach (AddressBookDetails details in list)
+            try
             {
-                Console.WriteLine(" ");
-                Console.WriteLine(details.firstName + " " + details.lastName);
-                Console.WriteLine("Contact Number : " + details.contactNumber);
-                Console.WriteLine("Email address : " + details.emailAddress);
-                Console.WriteLine("Residential address : " + details.address);
-            } 
+                string path = @"D:\bridgelabz\programs\ObjectOrientedPrograms\ObjectOrientedPrograms\AddressBook.json";
+                string jsondata = File.ReadAllText(path);
+                var objectArray = JsonConvert.DeserializeObject<List<AddressBookDetails>>(jsondata);
+                List<AddressBookDetails> list = objectArray;
+                foreach (AddressBookDetails details in list)
+                {
+                    Console.WriteLine(" ");
+                    Console.WriteLine(details.firstName + " " + details.lastName);
+                    Console.WriteLine("Contact Number : " + details.contactNumber);
+                    Console.WriteLine("Email address : " + details.emailAddress);
+                    Console.WriteLine("Residential address : " + details.address);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
 
         /// <summary>
@@ -159,57 +187,64 @@ namespace ObjectOrientedPrograms
         /// </summary>
         public static void EditInformation()
         {
-            Console.WriteLine("Enter first name of the person whose data to be edited : ");
-            string name = Console.ReadLine();
-            string path = @"D:\bridgelabz\programs\ObjectOrientedPrograms\ObjectOrientedPrograms\AddressBook.json";
-            string jsondata = File.ReadAllText(path);
-            var objectArray = JsonConvert.DeserializeObject<List<AddressBookDetails>>(jsondata);
-            List<AddressBookDetails> list = objectArray;
-            for (int i = 0; i < list.Count; i++)
+            try
             {
-                if (name == list[i].firstName)
+                Console.WriteLine("Enter first name of the person whose data to be edited : ");
+                string name = Console.ReadLine();
+                string path = @"D:\bridgelabz\programs\ObjectOrientedPrograms\ObjectOrientedPrograms\AddressBook.json";
+                string jsondata = File.ReadAllText(path);
+                var objectArray = JsonConvert.DeserializeObject<List<AddressBookDetails>>(jsondata);
+                List<AddressBookDetails> list = objectArray;
+                for (int i = 0; i < list.Count; i++)
                 {
-                    Console.WriteLine("select data to edit : ");
-                    Console.WriteLine("\n 1 : Firstname \n 2 : Lastname \n 3 : Contact number \n 4 : Email address \n 5 : Address");
-                    int choice = Convert.ToInt32(Console.ReadLine());
-                    switch (choice)
+                    if (name == list[i].firstName)
                     {
-                        case 1:
-                            Console.WriteLine("Enter new first name  : ");
-                            string newFirstName = Console.ReadLine();
-                            list[i].firstName = newFirstName;
-                            break;
-                        case 2:
-                            Console.WriteLine("Enter new last name : ");
-                            string newLastName = Console.ReadLine();
-                            list[i].lastName = newLastName;
-                            break;
-                        case 3:
-                            Console.WriteLine("Enter new contact number : ");
-                            long newContactNumber = Convert.ToInt64(Console.ReadLine());
-                            list[i].contactNumber = newContactNumber;
-                            break;
-                        case 4:
-                            Console.WriteLine("Enter new email address : ");
-                            string newEmailAdress = Console.ReadLine();
-                            list[i].emailAddress = newEmailAdress;
-                            break;
-                        case 5:
-                            Console.WriteLine("Enter new address : ");
-                            string newAddress = Console.ReadLine();
-                            list[i].address = newAddress;
-                            break;
-                        case 6:
-                            Console.WriteLine("Enter valid choice");
-                            break;
+                        Console.WriteLine("select data to edit : ");
+                        Console.WriteLine("\n 1 : Firstname \n 2 : Lastname \n 3 : Contact number \n 4 : Email address \n 5 : Address");
+                        int choice = Convert.ToInt32(Console.ReadLine());
+                        switch (choice)
+                        {
+                            case 1:
+                                Console.WriteLine("Enter new first name  : ");
+                                string newFirstName = Console.ReadLine();
+                                list[i].firstName = newFirstName;
+                                break;
+                            case 2:
+                                Console.WriteLine("Enter new last name : ");
+                                string newLastName = Console.ReadLine();
+                                list[i].lastName = newLastName;
+                                break;
+                            case 3:
+                                Console.WriteLine("Enter new contact number : ");
+                                long newContactNumber = Convert.ToInt64(Console.ReadLine());
+                                list[i].contactNumber = newContactNumber;
+                                break;
+                            case 4:
+                                Console.WriteLine("Enter new email address : ");
+                                string newEmailAdress = Console.ReadLine();
+                                list[i].emailAddress = newEmailAdress;
+                                break;
+                            case 5:
+                                Console.WriteLine("Enter new address : ");
+                                string newAddress = Console.ReadLine();
+                                list[i].address = newAddress;
+                                break;
+                            case 6:
+                                Console.WriteLine("Enter valid choice");
+                                break;
+                        }
                     }
                 }
-            }
 
-            using (StreamWriter file = File.CreateText(@"D:\bridgelabz\programs\ObjectOrientedPrograms\ObjectOrientedPrograms\AddressBook.json"))
+                using (StreamWriter file = File.CreateText(@"D:\bridgelabz\programs\ObjectOrientedPrograms\ObjectOrientedPrograms\AddressBook.json"))
+                {
+                    JsonSerializer serializer = new JsonSerializer();
+                    serializer.Serialize(file, list);
+                }
+            }
+            catch (Exception e)
             {
-                JsonSerializer serializer = new JsonSerializer();
-                serializer.Serialize(file, list);
+                Console.WriteLine(e.Message);
             }
         }
 

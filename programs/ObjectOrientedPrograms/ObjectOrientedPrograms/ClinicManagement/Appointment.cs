@@ -25,7 +25,7 @@ namespace ObjectOrientedPrograms
             var jsonObjectArray = JsonConvert.DeserializeObject<List<Patients>>(jsonData);
             List<Patients> list = jsonObjectArray;
             Patients patients = new Patients();
-            string today = DateTime.Today.ToString();
+            string today = DateTime.Today.ToString("dd/mm/yyyy");
             Random r = new Random();
             Console.WriteLine("Enter patients's details : ");
             Console.WriteLine("patient's Name : ");
