@@ -8,7 +8,7 @@ namespace DesignPatterns
 	{
 		public static void TestClassAdapter()
 		{
-			SocketAdapter sockAdapter = new SocketAdapterImplement();
+			ISocketAdapter sockAdapter = new SocketAdapterImplement();
 			Volts v3 = getVolt(sockAdapter, 3);
 			Volts v12 = getVolt(sockAdapter, 12);
 			Volts v120 = getVolt(sockAdapter, 120);
@@ -17,7 +17,7 @@ namespace DesignPatterns
 			Console.WriteLine("v120 volts using Class Adapter=" + v120.getVolts());
 		}
 
-		private static Volts getVolt(SocketAdapter sockAdapter, int i)
+		private static Volts getVolt(ISocketAdapter sockAdapter, int i)
 		{
 			switch (i)
 			{

@@ -4,6 +4,7 @@ using System.Text;
 
 namespace DesignPatterns
 {
+
     class Volts
     {
         private int volts;

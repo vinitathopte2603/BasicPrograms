@@ -1,0 +1,16 @@
+[
+  {
+    "Name": "Pooja",
+    "City": "Pune",
+    "State": "Maharashtra",
+    "ZipCode": 411043,
+    "ContactNumber": 9807654321
+  },
+  {
+    "Name": "Vinita",
+    "City": "Pune",
+    "State": "Maharashtra",
+    "ZipCode": 411043,
+    "ContactNumber": 9807123456
+  }
+]

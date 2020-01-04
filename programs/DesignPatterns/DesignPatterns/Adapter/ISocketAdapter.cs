@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DesignPatterns
 {
-   interface SocketAdapter
+   interface ISocketAdapter
     {
        public Volts Get120Volts();
        public Volts Get12Volts();
