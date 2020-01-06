@@ -1,16 +1,1 @@
-[
-  {
-    "Name": "Pooja",
-    "City": "Pune",
-    "State": "Maharashtra",
-    "ZipCode": 411043,
-    "ContactNumber": 9807654321
-  },
-  {
-    "Name": "Vinita",
-    "City": "Pune",
-    "State": "Maharashtra",
-    "ZipCode": 411043,
-    "ContactNumber": 9807123456
-  }
-]
+[{"Name":"Pooja","City":"Pune","State":"Maharashtra","ZipCode":411043,"ContactNumber":9807654321},{"Name":"Vinita","City":"Pune","State":"Maharashtra","ZipCode":411043,"ContactNumber":9807123456},{"Name":"Vinita","City":"Pune","State":"Maharashtra","ZipCode":411043,"ContactNumber":9874563210},{"Name":"Ankit","City":"pune","State":"maharashtra","ZipCode":411043,"ContactNumber":9874563210}]

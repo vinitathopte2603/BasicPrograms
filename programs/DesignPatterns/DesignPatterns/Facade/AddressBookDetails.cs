@@ -1,27 +1,79 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using Newtonsoft.Json;
-
+﻿//-----------------------------------------------------------------------
+// <copyright file="AddressBookDetails.cs" Author="Vinita Thopte" company="Bridgelabz">
+//     Company copyright tag.
+// </copyright>
+//-----------------------------------------------------------------------
 namespace DesignPatterns
 {
-    class AddressBookDetails
+    using System;
+using System.Collections.Generic;
+
+    /// <summary>
+    /// class to take user input
+    /// </summary>
+   public class AddressBookDetails
     {
-        static string path = @"D:\bridgelabz\programs\DesignPatterns\DesignPatterns\Addressbook.json";
-        public static void InputFromUser()
+        /// <summary>
+        /// The path
+        /// </summary>
+        private static string path = @"D:\bridgelabz\programs\DesignPatterns\DesignPatterns\Addressbook.json";
+
+        /// <summary>
+        /// user choice.
+        /// </summary>
+        public static void UserChoiceAddressBook()
         {
-            AddressBookInput addressBookInput = new AddressBookInput();
-            string jsonContent = File.ReadAllText(path);
-            var jsonObjectArray = JsonConvert.DeserializeObject<List<AddressBookInput>>(jsonContent);
-            List<AddressBookInput> addressBooks = jsonObjectArray;
-            addressBookInput.Name = Validation.ValidateName();
-            addressBookInput.City = Validation.ValidateCity();
-            addressBookInput.State = Validation.ValidateState();
-            addressBookInput.ZipCode = Validation.ValidateZipCode();
-            addressBookInput.ContactNumber = Validation.ValidateContactNumber();
-            addressBooks.Add(addressBookInput);
-            string jsonString = JsonConvert.SerializeObject(addressBooks);
-            File.WriteAllText(path, jsonString);
+            bool flag = true;
+            try
+            {
+                while (flag)
+                {
+                    Console.WriteLine("\n 1 : Input to address book \n 2 : Display \n 3 : Exit");
+                    Console.WriteLine("Enter your choice : ");
+                    int choice = Convert.ToInt32(Console.ReadLine());
+                    switch (choice)
+                    {
+                        case 1:
+                            InputFromUser();
+                            break;
+                        case 2:
+                            DisplayData();
+                            break;
+                        case 3:
+                            flag = false;
+                            break;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
+        /// <summary>
+        /// Inputs from user.
+        /// </summary>
+        private static void InputFromUser()
+        { 
+            InputOutput.WriteToFile(path);
+        }
+
+        /// <summary>
+        /// Displays the data.
+        /// </summary>
+        private static void DisplayData()
+        {
+            List<InputData> data = InputOutput.ReadFromFile(path);
+            foreach (InputData inputData in data)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Name : " + inputData.Name);
+                Console.WriteLine("City : " + inputData.City);
+                Console.WriteLine("State : " + inputData.State);
+                Console.WriteLine("Zipcode : " + inputData.ZipCode);
+                Console.WriteLine("Contact number : " + inputData.ContactNumber);
+            }
         }
     }
 }

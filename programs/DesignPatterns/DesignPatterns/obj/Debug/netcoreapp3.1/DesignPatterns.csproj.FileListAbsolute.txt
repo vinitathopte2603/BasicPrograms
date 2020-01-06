@@ -4,10 +4,10 @@ D:\bridgelabz\programs\DesignPatterns\DesignPatterns\bin\Debug\netcoreapp3.1\Des
 D:\bridgelabz\programs\DesignPatterns\DesignPatterns\bin\Debug\netcoreapp3.1\DesignPatterns.runtimeconfig.dev.json
 D:\bridgelabz\programs\DesignPatterns\DesignPatterns\bin\Debug\netcoreapp3.1\DesignPatterns.dll
 D:\bridgelabz\programs\DesignPatterns\DesignPatterns\bin\Debug\netcoreapp3.1\DesignPatterns.pdb
+D:\bridgelabz\programs\DesignPatterns\DesignPatterns\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 D:\bridgelabz\programs\DesignPatterns\DesignPatterns\obj\Debug\netcoreapp3.1\DesignPatterns.csprojAssemblyReference.cache
 D:\bridgelabz\programs\DesignPatterns\DesignPatterns\obj\Debug\netcoreapp3.1\DesignPatterns.AssemblyInfoInputs.cache
 D:\bridgelabz\programs\DesignPatterns\DesignPatterns\obj\Debug\netcoreapp3.1\DesignPatterns.AssemblyInfo.cs
+D:\bridgelabz\programs\DesignPatterns\DesignPatterns\obj\Debug\netcoreapp3.1\DesignPatterns.csproj.CopyComplete
 D:\bridgelabz\programs\DesignPatterns\DesignPatterns\obj\Debug\netcoreapp3.1\DesignPatterns.dll
 D:\bridgelabz\programs\DesignPatterns\DesignPatterns\obj\Debug\netcoreapp3.1\DesignPatterns.pdb
-D:\bridgelabz\programs\DesignPatterns\DesignPatterns\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
-D:\bridgelabz\programs\DesignPatterns\DesignPatterns\obj\Debug\netcoreapp3.1\DesignPatterns.csproj.CopyComplete

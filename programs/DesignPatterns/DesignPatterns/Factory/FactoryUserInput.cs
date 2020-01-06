@@ -1,11 +1,22 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------
+// <copyright file="FactoryUserInput.cs" Author="Vinita Thopte" company="Bridgelabz">
+//     Company copyright tag.
+// </copyright>
+//-----------------------------------------------------------------------
+namespace DesignPatterns
+{
+    using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DesignPatterns
-{
-    class FactoryUserInput
+    /// <summary>
+    /// class to give input to the factory
+    /// </summary>
+   public class FactoryUserInput
     {
+        /// <summary>
+        /// input to the factory
+        /// </summary>
         public static void FactoryInput()
         {
             try
@@ -20,15 +31,15 @@ namespace DesignPatterns
                     {
                         case 1:
                             Computer laptop = Factory.GetComputer("Laptop", "12 GB", "200 GB", "2.4 GHz");
-                            Console.WriteLine("Configurations of the laptop is  : " + laptop.tostring());
+                            Console.WriteLine("Configurations of the laptop is  : " + laptop.Tostring());
                             break;
                         case 2:
                             Computer pc = Factory.GetComputer("PCs", "2 GB", "500 GB", "2.4 GHz");
-                            Console.WriteLine("Configurations of the personal computer is  : " + pc.tostring());
+                            Console.WriteLine("Configurations of the personal computer is  : " + pc.Tostring());
                             break;
                         case 3:
                             Computer server = Factory.GetComputer("Servers", "16 GB", "12 TB", "2.9 GHz");
-                            Console.WriteLine("Configurations of the Server is  : " + server.tostring());
+                            Console.WriteLine("Configurations of the Server is  : " + server.Tostring());
                             break;
                         case 4:
                             flag = false;

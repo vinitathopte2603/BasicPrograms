@@ -1,12 +1,23 @@
-﻿using System;
-using System.Threading.Tasks;
-using System.Collections.Generic;
-using System.Text;
-
+﻿//-----------------------------------------------------------------------
+// <copyright file="SingletonDesignPattern.cs" Author="Vinita Thopte" company="Bridgelabz">
+//     Company copyright tag.
+// </copyright>
+//-----------------------------------------------------------------------
 namespace DesignPatterns
 {
-    class SingletonDesignPattern
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    /// <summary>
+    /// class to implement singleton design pattern
+    /// </summary>
+    public class SingletonDesignPattern
     {
+        /// <summary>
+        /// singleton design pattern implementation
+        /// </summary>
         public static void SingletonCreationalDesignPattern()
         {
             try
@@ -39,6 +50,10 @@ namespace DesignPatterns
                 Console.WriteLine(e.Message);
             }
         }
+
+        /// <summary>
+        /// eager initialization implementation
+        /// </summary>
         public static void EagerInitialise()
         {
             EagerInitialisation first = EagerInitialisation.SingleInstance;
@@ -46,28 +61,40 @@ namespace DesignPatterns
             EagerInitialisation second = EagerInitialisation.SingleInstance;
             second.Display("second call eager initialisation");
         }
+
+        /// <summary>
+        /// implementation of lazy initialization
+        /// </summary>
         public static void LazyInitialise()
         {
             LazyInitialisation first = LazyInitialisation.SingleInstance;
             first.Display("first call lazy initialisation");
             LazyInitialisation second = LazyInitialisation.SingleInstance;
             second.Display("second call lazy initialisation");
-
         }
+
+        /// <summary>
+        /// invoke two methods simultaneously
+        /// </summary>
         public static void ThreadSafe()
         {
             Parallel.Invoke(
-                ()=> ThreadSafeFirst(),
-                () => ThreadSafeSecond()
-                );
+                () => ThreadSafeFirst(),
+                () => ThreadSafeSecond());
         }
 
+        /// <summary>
+        /// method invoking the singleton class
+        /// </summary>
         private static void ThreadSafeSecond()
         {
             ThreadSafeSingleton second = ThreadSafeSingleton.SingleInstance;
             second.Display("second call thread safe singleton");
         }
 
+        /// <summary>
+        /// method invoking the singleton class
+        /// </summary>
         private static void ThreadSafeFirst()
         {
             ThreadSafeSingleton first = ThreadSafeSingleton.SingleInstance;

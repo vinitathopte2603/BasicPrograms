@@ -1,0 +1,16 @@
+[
+  {
+    "Name": "Syntel",
+    "City": "Pune",
+    "State": "Maharashtra",
+    "ZipCode": 411043,
+    "ContactNumber": 9807654321
+  },
+  {
+    "Name": "Infosys",
+    "City": "Pune",
+    "State": "Maharashtra",
+    "ZipCode": 411005,
+    "ContactNumber": 9874563210
+  }
+]
